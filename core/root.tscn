@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgpxnwlg2m5"]
+
+[ext_resource type="Script" path="res://core/root.gd" id="1_rhmql"]
+[ext_resource type="Script" path="res://core/game_layer.gd" id="2_1xnxc"]
+[ext_resource type="PackedScene" uid="uid://qcq4plbhkkal" path="res://testing_scene.tscn" id="2_d4b4j"]
+
+[node name="Root" type="Node"]
+script = ExtResource("1_rhmql")
+starting_scene = ExtResource("2_d4b4j")
+
+[node name="GameLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_1xnxc")
+
+[node name="GameViewport" type="SubViewportContainer" parent="GameLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="GameSubViewport" type="SubViewport" parent="GameLayer/GameViewport"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
