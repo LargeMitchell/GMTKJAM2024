@@ -1,7 +1,6 @@
 shader_type spatial;
 render_mode unshaded;
 
-uniform bool should_downscale = true;
 uniform float downscale_amount = 256;
 uniform sampler2D color_palette: source_color, filter_nearest;
 uniform int palette_size = 8;

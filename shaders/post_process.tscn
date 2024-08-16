@@ -6,7 +6,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1t7qv"]
 render_priority = 0
 shader = ExtResource("1_m4161")
-shader_parameter/should_downscale = false
 shader_parameter/downscale_amount = 256.0
 shader_parameter/palette_size = 46
 shader_parameter/color_palette = ExtResource("2_5utq6")
