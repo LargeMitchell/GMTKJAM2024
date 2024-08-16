@@ -30,7 +30,7 @@ var CurrentHealth: int
 @export var DebugColor: Color
 @export var Scale: Vector3
 
-@onready var TargetToChase = get_tree().get_first_node_in_group(PlayerGroup)
+@onready var TargetToChase = get_tree().get_first_node_in_group("TestPlayer")
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 
 func _ready() -> void:
@@ -78,3 +78,5 @@ func hit(DamageReceived: int, body: Node3D):
 		elif CurrentHealth < 1: 
 			queue_free()
 	
+func _on_timer_timeout() -> void:
+	MapQuery = true
