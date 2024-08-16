@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://lfkroyr3ewgu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejqqm"]
+albedo_color = Color(0.312699, 0.598165, 5.77569e-07, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pqv6p"]
+material = SubResource("StandardMaterial3D_ejqqm")
+
+[node name="TestDummy" type="MeshInstance3D" groups=["TestPlayer"]]
+mesh = SubResource("CapsuleMesh_pqv6p")
