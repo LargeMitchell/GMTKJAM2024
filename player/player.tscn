@@ -2930,7 +2930,7 @@ _data = {
 script = ExtResource("1_721nm")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ai7qf")
 
 [node name="Camera" type="Camera3D" parent="."]
@@ -2943,6 +2943,7 @@ far = 75.0
 skeleton = NodePath("../Guy/rig/Skeleton3D")
 
 [node name="Guy" type="Node3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
 [node name="rig" type="Node3D" parent="Guy"]
 
