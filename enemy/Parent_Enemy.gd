@@ -2,38 +2,49 @@ extends CharacterBody3D
 
 class_name Enemy
 
-#States
+#State setup
 enum {SPAWNING, ACTIVE, DYING}
 var State: int = 1
 var StateName: String = ""
 
 var MapQuery: bool = false
 
+var CurrentHealth: int
+
 @export_category("Enemy Variables")
 @export var Speed: float
 @export var XP: int
-@export var MaxHP: float
+@export var MaxHealth: float
 @export var CanMove: bool
+@export var PlayerGroup: String #Group in which the player character is
+@export var AttackGroup: String #Group in which the player's sword will be
 
 @export_category("Node References")
 @export var CollisionShape: CollisionShape3D
-@export var MeshInstance: MeshInstance3D
-@export var Navigation: NavigationAgent3D
+@export var MeshInstance: MeshInstance3D 
+@export var Navigation: NavigationAgent3D 
+@export var Animations: AnimationPlayer
+@export var HurtBox: Area3D 
 
 @export_category("Appearance")
 @export var DebugColor: Color
 @export var Scale: Vector3
 
-@onready var TargetToChase = get_tree().get_first_node_in_group("TestPlayer")
+@onready var TargetToChase = get_tree().get_first_node_in_group(PlayerGroup)
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 
 func _ready() -> void:
 	scale = Scale
 	State = ACTIVE
 	MeshMaterial.albedo_color = DebugColor
+	CurrentHealth = MaxHealth
+	
+	#Connect hit signal to a body entering the hurtbox (hurtbox assigned in inspector)
+	HurtBox.body_entered.connect(hit)
 	
 	call_deferred("actor_setup")
 
+#Await the NavigationServer before you attempt to move, otherwise big error
 func actor_setup():
 	await NavigationServer3D.map_changed
 	MapQuery = true
@@ -58,3 +69,12 @@ func active_state() -> void:
 	
 func dying_state() -> void:
 	pass
+
+func hit(DamageReceived: int, body: Node3D):
+	if body.is_in_group(AttackGroup):
+		if CurrentHealth > 0:
+			CurrentHealth = CurrentHealth - DamageReceived
+			Animations.play("Hit")
+		elif CurrentHealth < 1: 
+			queue_free()
+	
