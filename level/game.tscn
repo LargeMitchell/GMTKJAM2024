@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cv5kifmiko3rv"]
+[gd_scene load_steps=2 format=3 uid="uid://cv5kifmiko3rv"]
+
+[ext_resource type="PackedScene" uid="uid://cegcdd5xqqw3q" path="res://shaders/post_process.tscn" id="1_8ksxa"]
 
 [node name="Game" type="Node3D"]
+
+[node name="PostProcess" parent="." instance=ExtResource("1_8ksxa")]
