@@ -25,7 +25,9 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("Walk")
 	
 	if Input.is_action_pressed("attack"):
-		animation_player.play("AttackPose")
+		attacking = true
+		animation_player.play("AttackSwing1")
+		
 		var space_state = get_world_3d().direct_space_state
 		var mouse_position = get_viewport().get_mouse_position()
 	
@@ -38,8 +40,8 @@ func _physics_process(delta: float) -> void:
 		if not intersection.is_empty():
 			var pos = -intersection.position
 			$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3(0,1,0))
-			
-	if Input.is_action_just_released("attack"):
-		attacking = false
 	
 	move_and_slide()
+	
+func _on_animation_player_animation_finished(AttackSwing1: StringName) -> void:
+	attacking = false
