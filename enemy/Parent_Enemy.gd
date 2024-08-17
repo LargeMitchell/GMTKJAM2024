@@ -84,13 +84,13 @@ func shooting_state() -> void:
 		State = ACTIVE
 	
 
-func hit(DamageReceived: int, body: Node3D):
-	if body.is_in_group(AttackGroup):
-		if CurrentHealth > 0:
-			CurrentHealth = CurrentHealth - DamageReceived
-			Animations.play("Hit")
-		elif CurrentHealth < 1: 
-			queue_free()
+func hit(DamageReceived: int):
+	if CurrentHealth > 0:
+		CurrentHealth = CurrentHealth - DamageReceived
+		print ("HIT OUCHIE")
+		Animations.play("Hit")
+	elif CurrentHealth < 1: 
+		queue_free()
 	
 func _on_timer_timeout() -> void:
 	MapQuery = true

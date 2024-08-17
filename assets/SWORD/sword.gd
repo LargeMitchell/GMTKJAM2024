@@ -2,7 +2,6 @@ extends Node3D
 
 var SwordDamage:int = 10
 @onready var Swordarea_3d: Area3D = $Area3D
-@onready var test_enemy: Enemy = $"test_enemy"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +12,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	test_enemy.hit(SwordDamage, test_enemy.body)
+	pass
+
+
+func _on_area_3d_body_entered(EnemyBody: Node3D) -> void:
+	print("Im hitting I swear")
+	if EnemyBody.is_in_group("Enemy"):
+		EnemyBody.hit(SwordDamage)

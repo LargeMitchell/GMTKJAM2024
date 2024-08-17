@@ -29,6 +29,8 @@ window/size/viewport_height=1080
 
 TestPlayer=""
 Player="Group only player is in"
+AttackGroup="for enemies and sword (?)"
+Enemy=""
 
 [input]
 

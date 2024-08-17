@@ -8,7 +8,7 @@ const SPEED = 5.0
 func _ready() -> void:
 	Global.player = self
 	
-	animation_player.play("Idle")
+	animation_player.play("AttackPose")
 
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")

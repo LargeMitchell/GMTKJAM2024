@@ -768,7 +768,7 @@ bind/221/bone = -1
 bind/221/pose = Transform3D(0.99217, -0.00483653, 0.124799, 0.124799, 0.0770901, -0.989183, -0.00483653, 0.997012, 0.0770901, 0.111146, 0.676275, -0.459982)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c3esc"]
-size = Vector3(0.432373, 1.22107, 0.313721)
+size = Vector3(0.432373, 0.837067, 0.362213)
 
 [sub_resource type="Animation" id="Animation_12dvu"]
 resource_name = "AttackPose"
@@ -7305,20 +7305,21 @@ mesh = SubResource("ArrayMesh_gmb7r")
 skin = SubResource("Skin_vq1xr")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.248327, -0.95867, 0.28816, 0.602193, 0.418178, 0.499575, -0.844005, -0.308414, 0.887228, 0.0761189, 0.949501, 0.219572)
+transform = Transform3D(0.248327, -0.95867, 0.28816, 0.602193, 0.418177, 0.499574, -0.844005, -0.308414, 0.887228, 0.0761188, 0.949501, 0.219572)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true
 external_skeleton = NodePath("../..")
 
-[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" instance=ExtResource("2_xq8hi")]
+[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" groups=["AttackGroup"] instance=ExtResource("2_xq8hi")]
 transform = Transform3D(-0.325724, -0.639561, 0.696322, 0.908303, -0.00722353, 0.41825, -0.262467, 0.768706, 0.583268, -0.0146527, 0.0938235, -0.0245947)
 script = ExtResource("3_klhfx")
 
 [node name="Area3D" type="Area3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword"]
+transform = Transform3D(2.785, 0, 0, 0, 2.785, 0, 0, 0, 2.785, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D"]
-transform = Transform3D(1, -7.45058e-09, 2.85916e-07, 1.78814e-07, 1, -5.81145e-07, -5.86995e-07, 5.82077e-11, 0.999997, -0.00420643, 0.851269, 0.0321447)
+transform = Transform3D(1, -1.93715e-07, 5.93252e-07, 5.96046e-08, 1, 2.38419e-07, -9.37478e-07, 2.32831e-10, 1, -0.000788979, 0.499481, -0.236109)
 shape = SubResource("BoxShape3D_c3esc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Guy"]
@@ -7327,3 +7328,4 @@ libraries = {
 }
 
 [connection signal="area_entered" from="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D" to="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D" to="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" method="_on_area_3d_body_entered"]
