@@ -45,7 +45,7 @@ func _ready() -> void:
 	State = ACTIVE
 	CurrentHealth = MaxHealth
 	
-	
+	$AnimatedSprite3D.play("default")
 	call_deferred("actor_setup")
 
 #Await the NavigationServer before you attempt to move, otherwise big error
