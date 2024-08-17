@@ -16,7 +16,6 @@ material = SubResource("StandardMaterial3D_a63lp")
 [node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("CollisionShape", "MeshInstance", "Navigation", "Animations", "HurtBox")]
 script = ExtResource("1_skegd")
 Speed = 2.0
-MaxHealth = 2.0
 CanMove = true
 Damage = 1
 PlayerGroup = "TestPlayer"

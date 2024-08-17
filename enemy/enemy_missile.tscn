@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vsueppmh6ivu"]
+
+[ext_resource type="Script" path="res://enemy/Enemy_Missile.gd" id="1_uaq6t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0tx76"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vfad"]
+size = Vector3(0.318359, 0.322113, 0.323242)
+
+[node name="Enemy_missile" type="Area3D"]
+script = ExtResource("1_uaq6t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0tx76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00348023, -0.00257875, 0.000444293)
+shape = SubResource("BoxShape3D_4vfad")
