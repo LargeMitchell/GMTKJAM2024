@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=4 uid="uid://b1rdfvdglybqv"]
+[gd_scene load_steps=23 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
 [ext_resource type="Script" path="res://player/Sword_area3D.gd" id="4_dyxwh"]
+[ext_resource type="Script" path="res://assets/SWORD/sword.gd" id="4_u12e3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
 
@@ -11604,8 +11605,10 @@ bone_idx = 174
 use_external_skeleton = true
 external_skeleton = NodePath("../..")
 
-[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" groups=["AttackGroup"] instance=ExtResource("2_xq8hi")]
+[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" node_paths=PackedStringArray("exp_component") groups=["AttackGroup"] instance=ExtResource("2_xq8hi")]
 transform = Transform3D(-0.325724, -0.639561, 0.696322, 0.908303, -0.00722353, 0.41825, -0.262467, 0.768706, 0.583268, -0.0146527, 0.0938235, -0.0245947)
+script = ExtResource("4_u12e3")
+exp_component = NodePath("../../../../../../ExpComponent")
 
 [node name="Area3D" type="Area3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" groups=["AttackGroup"]]
 collision_layer = 2
@@ -11621,4 +11624,5 @@ libraries = {
 "": SubResource("AnimationLibrary_oopb2")
 }
 
+[connection signal="level_up_signal" from="ExpComponent" to="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" method="_on_exp_component_level_up_signal"]
 [connection signal="animation_finished" from="Guy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
