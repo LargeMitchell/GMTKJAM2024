@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0r6o4wq2o76"]
+
+[ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="1_j7lpb"]
+
+[node name="TestEnemy" instance=ExtResource("1_j7lpb")]
+DebugColor = Color(0.767286, 0.387913, 0.887892, 1)

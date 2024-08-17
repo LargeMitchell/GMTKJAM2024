@@ -44,6 +44,7 @@ navigation_mesh = SubResource("NavigationMesh_vnid2")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
 size = Vector3(20, 1, 20)
 
 [node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("3_0e8c0")]

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://enemy/Parent_Enemy.gd" id="1_skegd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a63lp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej3kt"]
 albedo_color = Color(0.575078, 0, 0.111744, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_kkp2w"]
-material = SubResource("StandardMaterial3D_a63lp")
+material = SubResource("StandardMaterial3D_ej3kt")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qaaw"]
 size = Vector3(1, 1.89014, 1)

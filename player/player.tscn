@@ -9403,7 +9403,7 @@ bones/102/parent = 101
 bones/102/rest = Transform3D(1, 8.78846e-08, 2.2163e-07, 1.06581e-14, 0.929582, -0.368615, -2.38419e-07, 0.368615, 0.929582, 1.96254e-15, 0.105601, 0)
 bones/102/enabled = true
 bones/102/position = Vector3(1.96254e-15, 0.105601, 0)
-bones/102/rotation = Quaternion(0.187641, 1.23959e-07, -7.32057e-08, 0.982238)
+bones/102/rotation = Quaternion(0.18764, 1.23959e-07, -7.32057e-08, 0.982238)
 bones/102/scale = Vector3(1, 1, 1)
 bones/103/name = "ORG-spine.005"
 bones/103/parent = 102
@@ -9501,8 +9501,13 @@ bones/116/parent = 115
 bones/116/rest = Transform3D(0.524736, 0.361384, 0.770748, -0.235322, 0.931714, -0.276646, -0.818092, -0.0362079, 0.573946, -0.00571678, 0.197446, -0.000612021)
 bones/116/enabled = true
 bones/116/position = Vector3(-0.00571678, 0.197446, -0.000612021)
+<<<<<<< Updated upstream
 bones/116/rotation = Quaternion(-0.14062, 0.45166, -0.794552, 0.380678)
 bones/116/scale = Vector3(0.986527, 0.986528, 0.986528)
+=======
+bones/116/rotation = Quaternion(-0.105236, 0.479517, -0.798311, 0.348838)
+bones/116/scale = Vector3(0.980207, 0.980207, 0.980207)
+>>>>>>> Stashed changes
 bones/117/name = "ORG-forearm.L"
 bones/117/parent = 116
 bones/117/rest = Transform3D(1, 4.3735e-08, -9.8621e-08, -6.05731e-08, 0.984066, -0.177801, 8.92734e-08, 0.177801, 0.984066, 1.08033e-07, 0.307526, -6.33299e-08)

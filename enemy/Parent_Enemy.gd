@@ -38,9 +38,11 @@ var CurrentHealth: int
 @onready var exp: PackedScene = preload("res://exp/experience.tscn")
 
 func _ready() -> void:
+	var material_override = StandardMaterial3D.new()
+	material_override.albedo_color = DebugColor
+	MeshInstance.set_surface_override_material(0, material_override)
 	scale = Scale
 	State = ACTIVE
-	MeshMaterial.albedo_color = DebugColor
 	CurrentHealth = MaxHealth
 	
 	

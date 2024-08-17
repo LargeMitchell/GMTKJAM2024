@@ -5,6 +5,11 @@ const SPEED = 5.0
 @onready var mesh_root: Node3D = $Guy
 @onready var animation_player: AnimationPlayer = $Guy/AnimationPlayer
 
+@onready var camera = $Camera
+var rayOrigin = Vector3()
+var rayEnd = Vector3()
+var attacking: bool = false
+
 func _ready() -> void:
 	Global.player = self
 	
@@ -16,5 +21,25 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED
 	if direction:
 		mesh_root.global_rotation.y = atan2(velocity.x,velocity.z)
-		#animation_player.play("Walk")
+		if not attacking:
+			animation_player.play("Walk")
+	
+	if Input.is_action_pressed("attack"):
+		animation_player.play("AttackPose")
+		var space_state = get_world_3d().direct_space_state
+		var mouse_position = get_viewport().get_mouse_position()
+	
+		rayOrigin = camera.project_ray_origin(mouse_position)
+		rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * 2000
+	
+		var query = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
+		var intersection = space_state.intersect_ray(query)
+	
+		if not intersection.is_empty():
+			var pos = -intersection.position
+			$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3(0,1,0))
+			
+	if Input.is_action_just_released("attack"):
+		attacking = false
+	
 	move_and_slide()
