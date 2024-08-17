@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://be0m65lm6ue27"]
+
+[ext_resource type="Texture2D" uid="uid://cdwedohji44jw" path="res://exp/exp.png" id="1_tfpfa"]
+[ext_resource type="Script" path="res://exp/experience.gd" id="2_j1s8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yusmg"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+albedo_texture = ExtResource("1_tfpfa")
+texture_filter = 0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0g0m0"]
+material = SubResource("StandardMaterial3D_yusmg")
+size = Vector2(0.5, 0.5)
+
+[node name="Experience" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_0g0m0")
+script = ExtResource("2_j1s8d")
