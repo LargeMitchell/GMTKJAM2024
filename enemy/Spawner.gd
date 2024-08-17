@@ -16,8 +16,11 @@ extends Node3D
 
 func _ready() -> void:
 	SpawnTimer.wait_time = SpawnInterval
-	SpawnTimer.autostart = Enabled
-
+	if Enabled: 
+		SpawnTimer.paused = false
+	if not Enabled:
+		SpawnTimer.paused = true
+		
 func _on_spawn_timer_timeout() -> void:
 	var picked_enemy = EnemiesAvailable.pick_random()
 	var instance = picked_enemy.instantiate()
