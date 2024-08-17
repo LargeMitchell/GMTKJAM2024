@@ -35,6 +35,7 @@ var CurrentHealth: int
 
 @onready var TargetToChase = Global.player
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
+@onready var exp: PackedScene = preload("res://exp/experience.tscn")
 
 func _ready() -> void:
 	scale = Scale
@@ -91,9 +92,9 @@ func hit(DamageReceived: int):
 	Animations.play("Hit")
 	
 	if CurrentHealth <= 1: 
+		die()
 		print("DEATH")
-		queue_free()
-	
+
 func _on_timer_timeout() -> void:
 	MapQuery = true
 
@@ -108,3 +109,9 @@ func calculate_distance():
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("AttackGroup"):
 		hit(area.Damage)
+
+func die() -> void:
+	var exp_inst: MeshInstance3D = exp.instantiate()
+	get_parent().add_child(exp_inst)
+	exp_inst.global_position = global_position
+	queue_free()
