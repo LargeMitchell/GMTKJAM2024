@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cv5kifmiko3rv"]
+[gd_scene load_steps=9 format=3 uid="uid://cv5kifmiko3rv"]
 
 [ext_resource type="PackedScene" uid="uid://cegcdd5xqqw3q" path="res://shaders/post_process.tscn" id="1_8ksxa"]
 [ext_resource type="PackedScene" uid="uid://b1rdfvdglybqv" path="res://player/player.tscn" id="2_dtir2"]
+[ext_resource type="PackedScene" uid="uid://7q3h73glx305" path="res://enemy/enemy_spawner.tscn" id="3_0e8c0"]
+[ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="4_ayask"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnfjm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +17,10 @@ sky = SubResource("Sky_ohamh")
 ambient_light_source = 2
 ambient_light_color = Color(0.347817, 0.347817, 0.347817, 1)
 reflected_light_source = 1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_vnid2"]
+vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 9.5, 0.5, 9.5, 9.5, 0.5, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="Game" type="Node3D"]
 
@@ -33,6 +39,16 @@ sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_dtir2")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_vnid2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 size = Vector3(20, 1, 20)
+
+[node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("3_0e8c0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124481, 0)
+SpawnInterval = 4
+SpawnRange = 30.0
+Enabled = true
+EnemiesAvailable = Array[PackedScene]([ExtResource("4_ayask")])

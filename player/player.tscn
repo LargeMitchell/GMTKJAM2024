@@ -5718,7 +5718,7 @@ _data = {
 "T0": SubResource("Animation_g1qqc")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_721nm")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
@@ -7300,7 +7300,7 @@ mesh = SubResource("ArrayMesh_gmb7r")
 skin = SubResource("Skin_vq1xr")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.668154, 0.503068, -0.56717, -0.0864565, -0.711634, -0.676716, -0.757707, 0.476197, -0.459981, -0.292345, 0.691249, 0.167953)
+transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864582, -0.711636, -0.676717, -0.757705, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true

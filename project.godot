@@ -27,6 +27,7 @@ window/size/viewport_height=1080
 [global_group]
 
 TestPlayer=""
+Player="Group only player is in"
 
 [input]
 

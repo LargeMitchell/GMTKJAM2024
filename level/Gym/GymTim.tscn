@@ -11,7 +11,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [node name="Game" type="Node3D"]
 
 [node name="TestDummy" parent="." instance=ExtResource("1_a15au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61097, 2, -1.88371)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61097, 1.65463, -1.88371)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.0141506, 0.502809, -0.864282, -0.00823122, 0.864398, 0.502741, 0.999866, 0, 0.0163705, -19.4211, 11.421, 3.06555)
@@ -29,8 +29,6 @@ size = Vector3(39.7088, 1, 45.0534)
 [node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("2_nn35m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050745, 0, 1.10456)
 SpawnInterval = 1
-EnemiesAvailable = Array[PackedScene]([ExtResource("2_0mb6y")])
 SpawnRange = 20.0
-
-[node name="TestEnemy" parent="." instance=ExtResource("2_0mb6y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0522, 1.09156, 11.8309)
+Enabled = true
+EnemiesAvailable = Array[PackedScene]([ExtResource("2_0mb6y")])

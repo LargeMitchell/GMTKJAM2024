@@ -16,6 +16,7 @@ var CurrentHealth: int
 @export var XP: int
 @export var MaxHealth: float
 @export var CanMove: bool
+@export var Damage: int
 @export var PlayerGroup: String #Group in which the player character is
 @export var AttackGroup: String #Group in which the player's sword will be
 
@@ -30,7 +31,7 @@ var CurrentHealth: int
 @export var DebugColor: Color
 @export var Scale: Vector3
 
-@onready var TargetToChase = get_tree().get_first_node_in_group("TestPlayer")
+@onready var TargetToChase = get_tree().get_first_node_in_group("Player")
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 
 func _ready() -> void:
@@ -39,8 +40,6 @@ func _ready() -> void:
 	MeshMaterial.albedo_color = DebugColor
 	CurrentHealth = MaxHealth
 	
-	#Connect hit signal to a body entering the hurtbox (hurtbox assigned in inspector)
-	HurtBox.body_entered.connect(hit)
 	
 	call_deferred("actor_setup")
 
