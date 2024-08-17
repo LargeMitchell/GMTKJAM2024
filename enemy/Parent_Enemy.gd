@@ -87,7 +87,6 @@ func shooting_state() -> void:
 
 func hit(DamageReceived: int):
 	print("Hit - Enemy")
-	#if CurrentHealth > 0:
 	CurrentHealth = CurrentHealth - DamageReceived
 	Animations.play("Hit")
 	
@@ -106,13 +105,6 @@ func calculate_distance():
 	return distance_length
 
 
-#func _on_area_3d_body_entered(body: Node3D):
-	#print(body.name)
-	#if body.is_in_group("AttackGroup"):
-		#hit(body.Damage)
-
-
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("AttackGroup"):
 		hit(area.Damage)
-	pass # Replace with function body.
