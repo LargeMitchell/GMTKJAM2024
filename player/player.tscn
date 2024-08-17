@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
-[ext_resource type="Script" path="res://assets/SWORD/sword.gd" id="3_klhfx"]
+[ext_resource type="Script" path="res://player/Sword_area3D.gd" id="4_dyxwh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
 
@@ -10243,7 +10243,7 @@ mesh = SubResource("ArrayMesh_hucln")
 skin = SubResource("Skin_ibkjd")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.248327, -0.95867, 0.28816, 0.602193, 0.418177, 0.499574, -0.844005, -0.308414, 0.887228, 0.0761188, 0.9495, 0.219572)
+transform = Transform3D(0.248327, -0.95867, 0.28816, 0.602193, 0.418178, 0.499575, -0.844005, -0.308414, 0.887228, 0.0761189, 0.9495, 0.219572)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true
@@ -10251,11 +10251,11 @@ external_skeleton = NodePath("../..")
 
 [node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" groups=["AttackGroup"] instance=ExtResource("2_xq8hi")]
 transform = Transform3D(-0.325724, -0.639561, 0.696322, 0.908303, -0.00722353, 0.41825, -0.262467, 0.768706, 0.583268, -0.0146527, 0.0938235, -0.0245947)
-script = ExtResource("3_klhfx")
 
-[node name="Area3D" type="Area3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword"]
+[node name="Area3D" type="Area3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" groups=["AttackGroup"]]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("4_dyxwh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D"]
 transform = Transform3D(1, 0, -1.58325e-08, 1.93715e-07, 1, -2.98023e-08, -1.27329e-07, 2.32831e-09, 1, 0.0434702, 0.641829, 0.0447886)
