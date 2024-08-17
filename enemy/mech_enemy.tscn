@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://idku8ihkmsn0"]
+
+[ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="1_ww2a5"]
+[ext_resource type="Texture2D" uid="uid://eb2jhqxc2eek" path="res://assets/EnemySpriteSheets/Mech.png" id="2_leste"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkrvi"]
+atlas = ExtResource("2_leste")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4xka"]
+atlas = ExtResource("2_leste")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07j8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkrvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4xka")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PoliceEnemy" instance=ExtResource("1_ww2a5")]
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+
+[node name="AnimatedSprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09362, 0)
+pixel_size = 0.2
+billboard = 1
+alpha_cut = 3
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_07j8o")
+frame_progress = 0.0498104
+speed_scale = 2.0
+
+[node name="Collisions" parent="." index="2"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.193729, 1.4651, -0.203162)
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.236895, 1.38938, -0.295024)
