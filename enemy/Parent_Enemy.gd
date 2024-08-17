@@ -14,7 +14,7 @@ var CurrentHealth: int
 @export_category("Enemy Variables")
 @export var Speed: float
 @export var XP: int
-@export var MaxHealth: float
+@export var MaxHealth: int
 @export var CanMove: bool
 @export var Damage: int
 @export var PlayerGroup: String #Group in which the player character is
