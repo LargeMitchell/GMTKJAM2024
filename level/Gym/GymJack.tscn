@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://m76uu7th12i0"]
+
+[ext_resource type="PackedScene" uid="uid://cegcdd5xqqw3q" path="res://shaders/post_process.tscn" id="1_tnahe"]
+[ext_resource type="PackedScene" uid="uid://b1rdfvdglybqv" path="res://player/player.tscn" id="2_k5rvs"]
+[ext_resource type="PackedScene" uid="uid://7q3h73glx305" path="res://enemy/enemy_spawner.tscn" id="3_aut1f"]
+[ext_resource type="PackedScene" uid="uid://cg4rewyg0240p" path="res://enemy/guy_enemy.tscn" id="5_kwrhl"]
+[ext_resource type="PackedScene" uid="uid://cii4fs0hd3iix" path="res://enemy/police_enemy.tscn" id="5_ud80i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnfjm"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ohamh"]
+sky_material = SubResource("ProceduralSkyMaterial_dnfjm")
+
+[sub_resource type="Environment" id="Environment_5og46"]
+sky = SubResource("Sky_ohamh")
+ambient_light_source = 2
+ambient_light_color = Color(0.347817, 0.347817, 0.347817, 1)
+reflected_light_source = 1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_vnid2"]
+vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 9.5, 0.5, 9.5, 9.5, 0.5, -9.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="Game" type="Node3D"]
+
+[node name="PostProcess" parent="." instance=ExtResource("1_tnahe")]
+transform = Transform3D(-0.665712, 0, -0.746208, 0, 1, 0, 0.746208, 0, -0.665712, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5og46")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.053384, 0.417065, 0.907308, -0.497145, 0.799096, -0.338072, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 15.0
+directional_shadow_pancake_size = 4.0
+sky_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("2_k5rvs")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_vnid2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(20, 1, 20)
+
+[node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("3_aut1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124481, 0)
+SpawnInterval = 2
+SpawnRange = 30.0
+Enabled = true
+EnemiesAvailable = Array[PackedScene]([ExtResource("5_kwrhl"), ExtResource("5_ud80i")])

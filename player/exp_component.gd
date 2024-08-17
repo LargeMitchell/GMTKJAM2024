@@ -9,6 +9,10 @@ var level_exp_dictionary: Dictionary = {
 	1: 10,
 	2: 80,
 	3: 200,
+	4: 300,
+	5: 500,
+	6: 700,
+	7: 1000
 }
 
 func _ready() -> void:
