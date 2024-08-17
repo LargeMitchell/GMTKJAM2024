@@ -8,7 +8,7 @@ const SPEED = 5.0
 func _ready() -> void:
 	Global.player = self
 	
-	animation_player.play("Idle")
+	animation_player.play("AttackPose")
 
 func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -16,5 +16,5 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED
 	if direction:
 		mesh_root.global_rotation.y = atan2(velocity.x,velocity.z)
-		animation_player.play("Walk")
+		#animation_player.play("Walk")
 	move_and_slide()

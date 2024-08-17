@@ -56,3 +56,11 @@ EnemiesAvailable = Array[PackedScene]([ExtResource("4_ayask")])
 
 [node name="Experience" parent="." instance=ExtResource("5_ipxrs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
+
+[node name="Experience2" parent="." instance=ExtResource("5_ipxrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
+exp_amount = 80
+
+[node name="Experience3" parent="." instance=ExtResource("5_ipxrs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
+exp_amount = 500
