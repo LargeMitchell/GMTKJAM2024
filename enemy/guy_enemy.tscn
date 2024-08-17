@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg4rewyg0240p"]
+
+[ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="1_s76wg"]
+[ext_resource type="Texture2D" uid="uid://bw41m8v4bbq4b" path="res://assets/EnemySpriteSheets/EnemyGuySpriteSheet.png" id="2_apdhs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lor43"]
+atlas = ExtResource("2_apdhs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u82s"]
+atlas = ExtResource("2_apdhs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07j8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lor43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u82s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GuyEnemy" instance=ExtResource("1_s76wg")]
+
+[node name="Mesh" parent="." index="0"]
+visible = false
+
+[node name="AnimatedSprite3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531248, 0)
+pixel_size = 0.05
+billboard = 1
+alpha_cut = 3
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_07j8o")
+frame_progress = 0.0498104
+speed_scale = 2.0
