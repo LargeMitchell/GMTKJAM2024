@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1rdfvdglybqv"]
+[gd_scene load_steps=16 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
+[ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
 
@@ -7314,3 +7315,6 @@ transform = Transform3D(-0.325724, -0.639561, 0.696322, 0.908303, -0.00722353, 0
 libraries = {
 "": SubResource("AnimationLibrary_hdcy0")
 }
+
+[node name="ExpComponent" type="Node" parent="."]
+script = ExtResource("3_1xckh")
