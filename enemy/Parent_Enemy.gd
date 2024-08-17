@@ -27,6 +27,7 @@ var CurrentHealth: int
 @export var Navigation: NavigationAgent3D 
 @export var Animations: AnimationPlayer
 @export var HurtBox: Area3D 
+@export var AnimatedSprite: AnimatedSprite3D
 
 @export_category("Appearance")
 @export var DebugColor: Color
@@ -85,9 +86,9 @@ func shooting_state() -> void:
 	
 
 func hit(DamageReceived: int):
+	print("Hit - Enemy")
 	if CurrentHealth > 0:
 		CurrentHealth = CurrentHealth - DamageReceived
-		print ("HIT OUCHIE")
 		Animations.play("Hit")
 	elif CurrentHealth < 1: 
 		queue_free()
@@ -101,3 +102,9 @@ func calculate_distance():
 	distance_calculated = Global.player.global_position - global_position
 	distance_length = distance_calculated.length()
 	return distance_length
+
+
+func _on_area_3d_body_entered(body: Node3D):
+	print(body.name)
+	if body.is_in_group("AttackGroup"):
+		hit(body.Damage)
