@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv5kifmiko3rv"]
+[gd_scene load_steps=9 format=3 uid="uid://cv5kifmiko3rv"]
 
 [ext_resource type="PackedScene" uid="uid://cegcdd5xqqw3q" path="res://shaders/post_process.tscn" id="1_8ksxa"]
 [ext_resource type="PackedScene" uid="uid://b1rdfvdglybqv" path="res://player/player.tscn" id="2_dtir2"]
 [ext_resource type="PackedScene" uid="uid://7q3h73glx305" path="res://enemy/enemy_spawner.tscn" id="3_0e8c0"]
 [ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="4_ayask"]
-[ext_resource type="PackedScene" uid="uid://be0m65lm6ue27" path="res://exp/experience.tscn" id="5_ipxrs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnfjm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,14 +52,3 @@ SpawnInterval = 4
 SpawnRange = 30.0
 Enabled = true
 EnemiesAvailable = Array[PackedScene]([ExtResource("4_ayask")])
-
-[node name="Experience" parent="." instance=ExtResource("5_ipxrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
-
-[node name="Experience2" parent="." instance=ExtResource("5_ipxrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
-exp_amount = 80
-
-[node name="Experience3" parent="." instance=ExtResource("5_ipxrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8773, 0.854059, 19.1111)
-exp_amount = 500

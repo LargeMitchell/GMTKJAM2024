@@ -19,4 +19,4 @@ func got_exp(amount: int) -> void:
 
 func level_up() -> void:
 	current_level += 1
-	print("level up", str(current_level))
+	Global.leveled_up.emit(current_level)
