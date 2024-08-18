@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://1mcemn53ckv"]
+[gd_scene load_steps=5 format=3 uid="uid://1mcemn53ckv"]
 
 [ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="2_0mb6y"]
 [ext_resource type="PackedScene" uid="uid://7q3h73glx305" path="res://enemy/enemy_spawner.tscn" id="2_nn35m"]
-[ext_resource type="PackedScene" uid="uid://da0r6o4wq2o76" path="res://enemy/test_enemy_2.tscn" id="3_87pa6"]
 [ext_resource type="PackedScene" uid="uid://b1rdfvdglybqv" path="res://player/player.tscn" id="3_oqurk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_whtcj"]
@@ -25,7 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050745, 0, 1.10456)
 SpawnInterval = 1
 SpawnRange = 20.0
 Enabled = true
-EnemiesAvailable = Array[PackedScene]([ExtResource("2_0mb6y"), ExtResource("3_87pa6")])
 
 [node name="TestEnemy" parent="NavigationRegion3D" instance=ExtResource("2_0mb6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63275, 1.10823, 19.0871)

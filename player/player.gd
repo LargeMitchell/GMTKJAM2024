@@ -28,18 +28,18 @@ func _physics_process(delta: float) -> void:
 		attacking = true
 		animation_player.play("AttackSwing1")
 		
-		var space_state = get_world_3d().direct_space_state
-		var mouse_position = get_viewport().get_mouse_position()
+	var space_state = get_world_3d().direct_space_state
+	var mouse_position = get_viewport().get_mouse_position()
 	
-		rayOrigin = camera.project_ray_origin(mouse_position)
-		rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * 2000
+	rayOrigin = camera.project_ray_origin(mouse_position)
+	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * 2000
 	
-		var query = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
-		var intersection = space_state.intersect_ray(query)
+	var query = PhysicsRayQueryParameters3D.create(rayOrigin,rayEnd)
+	var intersection = space_state.intersect_ray(query)
 	
-		if not intersection.is_empty():
-			var pos = -intersection.position
-			$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3(0,1,0))
+	if not intersection.is_empty():
+		var pos = -intersection.position
+		$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3(0,1,0))
 	
 	move_and_slide()
 	

@@ -91,7 +91,6 @@ func shooting_state() -> void:
 func hit(DamageReceived: int):
 	print("Hit - Enemy")
 	CurrentHealth = CurrentHealth - DamageReceived
-	Animations.play("Hit")
 	
 	if CurrentHealth <= 1: 
 		die()
