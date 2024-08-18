@@ -1,23 +1,26 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-
+@export_category("Player Metrics")
+@export var SPEED: float = 5.0
 @export var player_stats: PlayerStats
 
-@onready var mesh_root: Node3D = $Guy
-@onready var animation_player: AnimationPlayer = $Guy/AnimationPlayer
-@onready var woosh_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@export_category("Node References")
+@export var mesh_root: Node3D 
+@export var animation_player: AnimationPlayer
+@export var woosh_stream_player: AudioStreamPlayer
+@export var camera: Camera3D
 
-@onready var camera = $Camera
-var rayOrigin = Vector3()
-var rayEnd = Vector3()
-var attacking: bool = false
-
-#Camera Shake Variables
+@export_category("Camera Shake")
 @export var random_strength: float = 0.5
 @export var shake_fade: float = 5.0
+
 var rng = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
+
+#Aiming Vars
+var rayOrigin: Vector3 = Vector3()
+var rayEnd: Vector3 = Vector3()
+var attacking: bool = false
 
 func _ready() -> void:
 	Global.player = self

@@ -10134,9 +10134,13 @@ stream_0/stream = ExtResource("5_m4mb3")
 stream_1/stream = ExtResource("7_b3cgo")
 stream_2/stream = ExtResource("6_hpbvp")
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("mesh_root", "animation_player", "woosh_stream_player", "camera") groups=["Player"]]
 script = ExtResource("1_721nm")
 player_stats = ExtResource("2_8o5yg")
+mesh_root = NodePath("Guy")
+animation_player = NodePath("Guy/AnimationPlayer")
+woosh_stream_player = NodePath("AudioStreamPlayer")
+camera = NodePath("Camera")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17056, 0)
