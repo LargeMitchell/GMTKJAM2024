@@ -1,12 +1,16 @@
 extends Node
 
 @export var player_stats: PlayerStats
+@onready var camera: Camera3D = $"../Camera"
 
 var current_exp: int = 0
 var current_level: int = 1
 
+
+var camera_speed: float = 2.0
+var target_camera_size: float = 15.0
+
 signal level_up_signal
-@onready var camera: Camera3D = $"../Camera"
 
 var level_exp_dictionary: Dictionary = {
 	1: 10,
@@ -23,10 +27,13 @@ func _ready() -> void:
 	player_stats.current_exp = current_exp
 	player_stats.exp_to_next_level = level_exp_dictionary[current_level]
 
+# Added to smooth out camera zoom.
+func _process(delta: float) -> void:
+	camera.size = lerpf(camera.size, target_camera_size, camera_speed * delta)
+	
 func got_exp(amount: int) -> void:
 	current_exp += amount
 	player_stats.current_exp = current_exp
-	Global.exp_applied.emit()
 	if current_exp >= level_exp_dictionary[current_level]:
 		level_up()
 
@@ -38,10 +45,13 @@ func level_up() -> void:
 
 #Camera sizing code
 	if current_level == 4:
-		camera.size *= 2
-	
+		target_camera_size = camera.size * 2
+		
+	if current_level == 5:
+		target_camera_size = camera.size * 2
+		
 	if current_level == 6:
-		camera.size *= 2
+		target_camera_size = camera.size * 2
 		
 	if current_level == 7:
-		camera.size *= 2
+		target_camera_size = camera.size * 2

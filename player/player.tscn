@@ -1,10 +1,9 @@
-[gd_scene load_steps=43 format=4 uid="uid://b1rdfvdglybqv"]
+[gd_scene load_steps=42 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
 [ext_resource type="Resource" path="res://player/player_stats.tres" id="2_8o5yg"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
-[ext_resource type="Script" path="res://player/health_component.gd" id="3_q04dv"]
 [ext_resource type="Script" path="res://player/Sword_area3D.gd" id="4_dyxwh"]
 [ext_resource type="Script" path="res://assets/SWORD/sword.gd" id="4_u12e3"]
 [ext_resource type="AudioStream" uid="uid://bbk35dox3te0v" path="res://assets/Sounds/Attack/A_Woosh1.wav" id="5_m4mb3"]
@@ -10149,10 +10148,6 @@ far = 75.0
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 skeleton = NodePath("")
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("3_q04dv")
-Player_Stats = ExtResource("2_8o5yg")
-
 [node name="ExpComponent" type="Node" parent="."]
 script = ExtResource("3_1xckh")
 player_stats = ExtResource("2_8o5yg")
@@ -11722,7 +11717,7 @@ mesh = SubResource("ArrayMesh_hucln")
 skin = SubResource("Skin_ibkjd")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864582, -0.711636, -0.676717, -0.757705, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
+transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864584, -0.711636, -0.676717, -0.757706, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true
