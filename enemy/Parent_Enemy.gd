@@ -59,6 +59,10 @@ func _physics_process(delta: float) -> void:
 		SHOOTING: shooting_state()
 		
 	calculate_distance()
+	if velocity.x > 1:
+		AnimatedSprite.flip_h = false
+	elif velocity.x < 1: 
+		AnimatedSprite.flip_h = true
 	
 	move_and_slide()
 
