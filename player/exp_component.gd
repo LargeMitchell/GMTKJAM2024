@@ -6,6 +6,7 @@ var current_exp: int = 0
 var current_level: int = 1
 
 signal level_up_signal
+@onready var camera: Camera3D = $"../Camera"
 
 var level_exp_dictionary: Dictionary = {
 	1: 10,
@@ -33,3 +34,13 @@ func level_up() -> void:
 	player_stats.exp_to_next_level = level_exp_dictionary[current_level]
 	Global.leveled_up.emit(current_level)
 	emit_signal("level_up_signal")
+
+#Camera sizing code
+	if current_level == 4:
+		camera.size *= 2
+	
+	if current_level == 6:
+		camera.size *= 2
+		
+	if current_level == 7:
+		camera.size *= 2
