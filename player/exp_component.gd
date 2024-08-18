@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 func got_exp(amount: int) -> void:
 	current_exp += amount
 	player_stats.current_exp = current_exp
+	Global.exp_applied.emit()
 	if current_exp >= level_exp_dictionary[current_level]:
 		level_up()
 
