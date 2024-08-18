@@ -21,11 +21,22 @@ var CurrentWave: Array[PackedScene]
 func _ready() -> void:
 	SpawnTimer.wait_time = SpawnInterval
 	CurrentWave = Wave1
+	Global.leveled_up.connect(set_wave)
 	if Enabled: 
 		SpawnTimer.paused = false
 	if not Enabled:
 		SpawnTimer.paused = true
-		
+
+func set_wave(current_level): #On Level Up, set wave based on new player level
+	match current_level:
+		1:
+			CurrentWave = Wave1
+		2:
+			CurrentWave = Wave2
+		3:
+			CurrentWave = Wave3
+	print(CurrentWave)
+	
 func _on_spawn_timer_timeout() -> void:
 	var picked_enemy = CurrentWave.pick_random()
 	var instance = picked_enemy.instantiate()

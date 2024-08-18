@@ -54,4 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124481, 0)
 SpawnInterval = 4
 SpawnRange = 30.0
 Enabled = true
-Wave1 = Array[PackedScene]([ExtResource("4_4w2yv"), ExtResource("5_uqe5y"), ExtResource("6_y0h1n")])
+Wave1 = Array[PackedScene]([ExtResource("4_4w2yv")])
+Wave2 = Array[PackedScene]([ExtResource("5_uqe5y")])
+Wave3 = Array[PackedScene]([ExtResource("6_y0h1n")])
