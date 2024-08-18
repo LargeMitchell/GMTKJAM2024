@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector3 = Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP, PI/4).normalized()
 	velocity = direction * SPEED
 	if direction:
-		mesh_root.global_rotation.y = atan2(velocity.x,velocity.z)
+		#mesh_root.global_rotation.y = atan2(velocity.x,velocity.z)
 		if not attacking:
 			animation_player.play("Walk")
 	
@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 	var intersection = space_state.intersect_ray(query)
 	
 	if not intersection.is_empty():
-		var pos = -intersection.position
-		$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3(0,1,0))
+		var pos = intersection.position
+		$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3.UP, true)
 	
 	move_and_slide()
 	

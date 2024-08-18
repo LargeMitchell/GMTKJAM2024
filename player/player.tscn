@@ -11658,7 +11658,7 @@ mesh = SubResource("ArrayMesh_hucln")
 skin = SubResource("Skin_ibkjd")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.414726, 0.613125, -0.689386, -0.0899691, -0.719132, -0.676078, -0.918882, 0.296462, -0.261618, -0.079075, 0.700393, 0.372601)
+transform = Transform3D(0.414728, 0.613125, -0.68939, -0.0899671, -0.719129, -0.676078, -0.918886, 0.296457, -0.261618, -0.0790742, 0.700393, 0.3726)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true
