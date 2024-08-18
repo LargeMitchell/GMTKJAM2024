@@ -22,8 +22,9 @@ ambient_light_color = Color(0.347817, 0.347817, 0.347817, 1)
 reflected_light_source = 1
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vnid2"]
-vertices = PackedVector3Array(-9.5, 0.5, -9.5, -9.5, 0.5, 9.5, 9.5, 0.5, 9.5, 9.5, 0.5, -9.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(-9938.5, -0.0158, 4.5, -188.5, -0.0158, 4.5, -188.5, -0.0158, -145.5, 11.5, -0.0158, -195.5, 11.5, -0.0158, -9945.5, -9938.5, -0.0158, -9945.5, 161.5, -0.0158, -195.5, 211.5, -0.0158, 4.5, 9961.5, -0.0158, 4.5, 9961.5, -0.0158, -9945.5, -88.5, 0.4842, -95.5, -88.5, 0.4842, 154.5, 111.5, 0.4842, 154.5, 111.5, 0.4842, -95.5, 11.5, -0.0158, 9954.5, 11.5, -0.0158, 254.5, -188.5, -0.0158, 204.5, -9938.5, -0.0158, 9954.5, 211.5, -0.0158, 204.5, 9961.5, -0.0158, 9954.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 0), PackedInt32Array(6, 3, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 4), PackedInt32Array(13, 12, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(16, 17, 0), PackedInt32Array(0, 1, 16), PackedInt32Array(18, 7, 8), PackedInt32Array(15, 18, 14), PackedInt32Array(14, 18, 19), PackedInt32Array(19, 18, 8)]
+cell_size = 50.0
 
 [node name="Game" type="Node3D"]
 
