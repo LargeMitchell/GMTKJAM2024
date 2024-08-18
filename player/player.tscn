@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://bgdkmba73srbw" path="res://assets/Sounds/Walking/Step 10.wav" id="16_4cg8f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
+radius = 0.216256
+height = 1.22123
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o67va"]
 resource_name = "M_Shirt"
@@ -10137,7 +10139,14 @@ script = ExtResource("1_721nm")
 player_stats = ExtResource("2_8o5yg")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17056, 0)
+shape = SubResource("CapsuleShape3D_ai7qf")
+
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_ai7qf")
 
 [node name="Camera" type="Camera3D" parent="."]
@@ -11322,7 +11331,7 @@ bones/165/parent = 160
 bones/165/rest = Transform3D(-0.10174, -0.986592, -0.127611, 0.608344, 0.0397947, -0.792675, 0.787126, -0.158279, 0.596139, 1.86554e-08, 1.8077e-09, -8.32235e-09)
 bones/165/enabled = true
 bones/165/position = Vector3(1.86554e-08, 1.8077e-09, -8.32235e-09)
-bones/165/rotation = Quaternion(0.0785305, -0.266051, 0.957351, -0.080806)
+bones/165/rotation = Quaternion(0.0785305, -0.266051, 0.957351, -0.0808061)
 bones/165/scale = Vector3(1, 1, 1)
 bones/166/name = "upper_arm_ik.R"
 bones/166/parent = 165
@@ -11722,13 +11731,13 @@ mesh = SubResource("ArrayMesh_hucln")
 skin = SubResource("Skin_ibkjd")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864582, -0.711636, -0.676717, -0.757705, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
+transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864584, -0.711636, -0.676717, -0.757706, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true
 external_skeleton = NodePath("../..")
 
-[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" groups=["AttackGroup"] instance=ExtResource("2_xq8hi")]
+[node name="Sword" parent="Guy/rig/Skeleton3D/Guy/BoneAttachment3D" instance=ExtResource("2_xq8hi")]
 transform = Transform3D(-0.750908, -0.650474, 0.114106, 0.5228, -0.479934, 0.704516, -0.403506, 0.588682, 0.700454, -0.0146527, 0.0938234, -0.0245947)
 script = ExtResource("4_u12e3")
 
@@ -11773,5 +11782,7 @@ max_polyphony = 4
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_0348h")
 
+[connection signal="area_entered" from="Area3D" to="HealthComponent" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="HealthComponent" method="_on_area_3d_body_entered"]
 [connection signal="level_up_signal" from="ExpComponent" to="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" method="_on_exp_component_level_up_signal"]
 [connection signal="animation_finished" from="Guy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -13,3 +13,8 @@ func reduce_health() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.is_in_group("Enemy"):
+		reduce_health()
