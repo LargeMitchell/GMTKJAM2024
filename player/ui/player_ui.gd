@@ -13,6 +13,7 @@ func _ready() -> void:
 	set_max_health(player_stats.max_health)
 	
 	Global.health_changed.connect(health_changed)
+	Global.new_max_exp.connect(new_level)
 
 func set_max_health(max: int) -> void:
 	for i in range(max):
@@ -26,3 +27,7 @@ func health_changed(new_value: int) -> void:
 			heart.get_child(0).frame = 0
 		else:
 			heart.get_child(0).frame = 1
+
+func new_level(new_value: int) -> void:
+	exp_bar.max_value = new_value
+	exp_bar.min_value = player_stats.current_exp
