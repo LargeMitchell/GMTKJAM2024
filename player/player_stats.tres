@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://ctv35bn388pki"]
+
+[ext_resource type="Script" path="res://player/player_stats.gd" id="1_48ysr"]
+
+[resource]
+script = ExtResource("1_48ysr")
+current_health = 5
+max_health = 5
+current_exp = 0
+exp_to_next_level = 0
