@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 		attacking = true
 		if not animation_player.current_animation == "AttackSwing2":
 			play_audio(woosh_stream_player)
-		
 		animation_player.play("AttackSwing2")
 		
 		

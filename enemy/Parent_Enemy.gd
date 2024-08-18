@@ -36,6 +36,8 @@ var CurrentHealth: int
 @onready var TargetToChase = Global.player
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 @onready var exp: PackedScene = preload("res://exp/experience.tscn")
+@onready var hit_stream_player: AudioStreamPlayer = $HitStreamPlayer
+@onready var death_stream_player: AudioStreamPlayer = $DeathStreamPlayer
 
 func _ready() -> void:
 	var material_override = StandardMaterial3D.new()
@@ -90,9 +92,11 @@ func shooting_state() -> void:
 
 func hit(DamageReceived: int):
 	print("Hit - Enemy")
+	play_audio(hit_stream_player)
 	CurrentHealth = CurrentHealth - DamageReceived
 	
 	if CurrentHealth <= 1: 
+		play_audio(death_stream_player)
 		die()
 		print("DEATH")
 
@@ -116,3 +120,16 @@ func die() -> void:
 	get_parent().add_child(exp_inst)
 	exp_inst.global_position = global_position
 	queue_free()
+
+func play_audio(AudioPlayer: AudioStreamPlayer):
+	var last_pitch = 1.0
+	randomize()
+	AudioPlayer.pitch_scale = randf_range(0.8, 1.3)
+	
+	while abs(AudioPlayer.pitch_scale - last_pitch) < .1:
+		randomize()
+		AudioPlayer.pitch_scale = randf_range(0.8, 1.3)
+	
+	last_pitch = AudioPlayer.pitch_scale
+	
+	AudioPlayer.play()
