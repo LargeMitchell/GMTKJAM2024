@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
 [ext_resource type="Script" path="res://player/Sword_area3D.gd" id="4_dyxwh"]
 [ext_resource type="Script" path="res://assets/SWORD/sword.gd" id="4_u12e3"]
-[ext_resource type="AudioStream" uid="uid://bbk35dox3te0v" path="res://assets/Sounds/Attack/A_Woosh1.wav" id="5_m4mb3"]
+[ext_resource type="AudioStream" uid="uid://deljmw7uqv8ey" path="res://assets/Sounds/Attack/A_Woosh3.wav" id="6_hpbvp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
 
@@ -11625,7 +11625,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_m4mb3")
+stream = ExtResource("6_hpbvp")
 
 [connection signal="level_up_signal" from="ExpComponent" to="Guy/rig/Skeleton3D/Guy/BoneAttachment3D/Sword" method="_on_exp_component_level_up_signal"]
 [connection signal="animation_finished" from="Guy/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

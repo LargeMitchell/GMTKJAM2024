@@ -4,6 +4,7 @@ const SPEED = 5.0
 
 @onready var mesh_root: Node3D = $Guy
 @onready var animation_player: AnimationPlayer = $Guy/AnimationPlayer
+@onready var woosh_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var camera = $Camera
 var rayOrigin = Vector3()
@@ -26,7 +27,11 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("attack"):
 		attacking = true
-		animation_player.play("AttackSwing1")
+		if not animation_player.current_animation == "AttackSwing2":
+			play_audio(woosh_stream_player)
+		
+		animation_player.play("AttackSwing2")
+		
 		
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position = get_viewport().get_mouse_position()
@@ -45,3 +50,16 @@ func _physics_process(delta: float) -> void:
 	
 func _on_animation_player_animation_finished(AttackSwing1: StringName) -> void:
 	attacking = false
+
+func play_audio(AudioPlayer: AudioStreamPlayer):
+	var last_pitch = 1.0
+	randomize()
+	AudioPlayer.pitch_scale = randf_range(0.8, 1.2)
+	
+	while abs(AudioPlayer.pitch_scale - last_pitch) < .1:
+		randomize()
+		AudioPlayer.pitch_scale = randf_range(0.8, 1.2)
+	
+	last_pitch = AudioPlayer.pitch_scale
+	
+	AudioPlayer.play()
