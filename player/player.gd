@@ -13,6 +13,12 @@ var rayOrigin = Vector3()
 var rayEnd = Vector3()
 var attacking: bool = false
 
+#Camera Shake Variables
+@export var random_strength: float = 0.5
+@export var shake_fade: float = 5.0
+var rng = RandomNumberGenerator.new()
+var shake_strength: float = 0.0
+
 func _ready() -> void:
 	Global.player = self
 	
@@ -47,6 +53,12 @@ func _physics_process(delta: float) -> void:
 		var pos = intersection.position
 		$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3.UP, true)
 	
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
+		
+		camera.set_h_offset(rng.randf_range(-shake_strength, shake_strength))
+		camera.set_v_offset(rng.randf_range(-shake_strength, shake_strength))
+	
 	move_and_slide()
 
 func _on_animation_player_animation_finished(AttackSwing1: StringName) -> void:
@@ -64,3 +76,9 @@ func play_audio(AudioPlayer: AudioStreamPlayer):
 	last_pitch = AudioPlayer.pitch_scale
 	
 	AudioPlayer.play()
+
+func apply_shake():
+	shake_strength = random_strength
+
+func random_offset() -> Vector2:
+	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
