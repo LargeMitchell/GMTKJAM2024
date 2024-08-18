@@ -27,15 +27,8 @@ animations = [{
 
 [node name="GuyEnemy" instance=ExtResource("1_s76wg")]
 
-[node name="Mesh" parent="." index="0"]
-visible = false
-
-[node name="AnimatedSprite3D" parent="." index="1"]
+[node name="AnimatedSprite3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531248, 0)
-pixel_size = 0.05
-billboard = 1
-alpha_cut = 3
-texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_07j8o")
 frame_progress = 0.0498104
 speed_scale = 2.0

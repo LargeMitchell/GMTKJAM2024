@@ -23,25 +23,21 @@ var CurrentHealth: int
 
 @export_category("Node References")
 @export var CollisionShape: CollisionShape3D
-@export var MeshInstance: MeshInstance3D 
 @export var Navigation: NavigationAgent3D 
 @export var Animations: AnimationPlayer
 @export var HurtBox: Area3D 
 @export var AnimatedSprite: AnimatedSprite3D
+@export var DeathExplosion: CPUParticles3D
 
 @export_category("Appearance")
-@export var DebugColor: Color
 @export var Scale: Vector3
 
 @onready var TargetToChase = Global.player
-@onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 @onready var exp: PackedScene = preload("res://exp/experience.tscn")
 @onready var hit_stream_player: AudioStreamPlayer = $HitStreamPlayer
 
 func _ready() -> void:
 	var material_override = StandardMaterial3D.new()
-	material_override.albedo_color = DebugColor
-	MeshInstance.set_surface_override_material(0, material_override)
 	scale = Scale
 	State = ACTIVE
 	CurrentHealth = MaxHealth
@@ -90,7 +86,7 @@ func shooting_state() -> void:
 	
 
 func hit(DamageReceived: int):
-	print("Hit - Enemy")
+	Animations.play("Hit")
 	play_audio(hit_stream_player)
 	CurrentHealth = CurrentHealth - DamageReceived
 	
@@ -117,6 +113,9 @@ func die() -> void:
 	var exp_inst: MeshInstance3D = exp.instantiate()
 	get_parent().add_child(exp_inst)
 	exp_inst.global_position = global_position
+	AnimatedSprite.hide()
+	DeathExplosion.emitting = true
+	await DeathExplosion.finished
 	queue_free()
 
 func play_audio(AudioPlayer: AudioStreamPlayer):

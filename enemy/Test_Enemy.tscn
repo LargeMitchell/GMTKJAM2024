@@ -1,16 +1,71 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgjew46k3n48m"]
+[gd_scene load_steps=15 format=3 uid="uid://dgjew46k3n48m"]
 
 [ext_resource type="Script" path="res://enemy/Parent_Enemy.gd" id="1_skegd"]
 [ext_resource type="AudioStream" uid="uid://6m216y5dsm80" path="res://assets/Sounds/Attack/Sword_Hit.wav" id="2_hkrnr"]
+[ext_resource type="Texture2D" uid="uid://bw41m8v4bbq4b" path="res://assets/EnemySpriteSheets/EnemyGuySpriteSheet.png" id="2_yevm8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej3kt"]
-albedo_color = Color(0.575078, 0, 0.111744, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dekjb"]
+atlas = ExtResource("2_yevm8")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="PrismMesh" id="PrismMesh_kkp2w"]
-material = SubResource("StandardMaterial3D_ej3kt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pio25"]
+atlas = ExtResource("2_yevm8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_octie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dekjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pio25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4qaaw"]
 size = Vector3(1, 1.89014, 1)
+
+[sub_resource type="Animation" id="Animation_db881"]
+resource_name = "Hit"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.766918, 0, 0.0151078, 1), Color(1, 1, 1, 1), Color(0.766918, 0, 0.0151078, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cbjhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqfkq"]
+_data = {
+"Hit": SubResource("Animation_db881"),
+"RESET": SubResource("Animation_cbjhe")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3evs"]
 
@@ -18,7 +73,14 @@ size = Vector3(1, 1.89014, 1)
 streams_count = 1
 stream_0/stream = ExtResource("2_hkrnr")
 
-[node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("CollisionShape", "MeshInstance", "Navigation", "Animations", "HurtBox", "AnimatedSprite") groups=["Enemy"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to36y"]
+albedo_color = Color(0.870091, 0.459962, 0.117234, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4fm15"]
+material = SubResource("StandardMaterial3D_to36y")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("CollisionShape", "Navigation", "Animations", "HurtBox", "AnimatedSprite", "DeathExplosion") groups=["Enemy"]]
 script = ExtResource("1_skegd")
 Speed = 2.0
 MaxHealth = 20
@@ -27,18 +89,20 @@ Damage = 1
 PlayerGroup = "TestPlayer"
 AttackGroup = "Attack"
 CollisionShape = NodePath("Collisions")
-MeshInstance = NodePath("Mesh")
 Navigation = NodePath("NavigationAgent3D")
 Animations = NodePath("AnimationPlayer")
 HurtBox = NodePath("Area3D")
 AnimatedSprite = NodePath("AnimatedSprite3D")
-DebugColor = Color(0.241769, 0.503336, 0.5117, 1)
+DeathExplosion = NodePath("CPUParticles3D")
 Scale = Vector3(1, 1, 1)
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("PrismMesh_kkp2w")
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945505, 0)
+pixel_size = 0.05
+billboard = 1
+alpha_cut = 3
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_octie")
 
 [node name="Collisions" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.489575, 0)
@@ -48,6 +112,9 @@ disabled = true
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wqfkq")
+}
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
@@ -65,6 +132,25 @@ autostart = true
 [node name="HitStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_8wawv")
 max_polyphony = 10
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+fixed_fps = 60
+local_coords = true
+mesh = SubResource("BoxMesh_4fm15")
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+scale_amount_min = 0.8
+scale_amount_max = 1.2
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
