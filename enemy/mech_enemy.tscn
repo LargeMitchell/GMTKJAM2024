@@ -26,21 +26,16 @@ animations = [{
 }]
 
 [node name="PoliceEnemy" instance=ExtResource("1_ww2a5")]
+Scale = Vector3(0.5, 0.5, 0.5)
 
-[node name="Mesh" parent="." index="0"]
-visible = false
-
-[node name="AnimatedSprite3D" parent="." index="1"]
+[node name="AnimatedSprite3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09362, 0)
 pixel_size = 0.2
-billboard = 1
-alpha_cut = 3
-texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_07j8o")
 frame_progress = 0.0498104
 speed_scale = 2.0
 
-[node name="Collisions" parent="." index="2"]
+[node name="Collisions" parent="." index="1"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.193729, 1.4651, -0.203162)
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]

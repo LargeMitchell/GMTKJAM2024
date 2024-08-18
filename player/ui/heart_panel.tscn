@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpfpetx4hl4h3"]
+
+[ext_resource type="Texture2D" uid="uid://c71y3fxjq12ut" path="res://assets/HUD/HeartSpriteSheet.png" id="1_l1w26"]
+[ext_resource type="Script" path="res://player/ui/heart.gd" id="2_bbm3m"]
+
+[node name="HeartPanel" type="Panel"]
+self_modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(128, 128)
+size_flags_horizontal = 3
+
+[node name="Heart" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_l1w26")
+centered = false
+hframes = 2
+script = ExtResource("2_bbm3m")

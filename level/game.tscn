@@ -52,7 +52,7 @@ size = Vector3(278.701, 1, 290.634)
 
 [node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("3_0e8c0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124481, 0)
-SpawnInterval = 4
+SpawnInterval = 2
 SpawnRange = 30.0
 Enabled = true
 Wave1 = Array[PackedScene]([ExtResource("4_4w2yv")])

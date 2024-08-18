@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 
+@export var player_stats: PlayerStats
+
 @onready var mesh_root: Node3D = $Guy
 @onready var animation_player: AnimationPlayer = $Guy/AnimationPlayer
 @onready var woosh_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -46,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		$Guy.look_at(Vector3(pos.x, global_position.y, pos.z), Vector3.UP, true)
 	
 	move_and_slide()
-	
+
 func _on_animation_player_animation_finished(AttackSwing1: StringName) -> void:
 	attacking = false
 
