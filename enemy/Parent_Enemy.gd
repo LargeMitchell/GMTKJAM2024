@@ -118,6 +118,7 @@ func die() -> void:
 	get_parent().add_child(exp_inst)
 	exp_inst.global_position = global_position
 	AnimatedSprite.hide()
+	Global.player.apply_shake()
 	DeathExplosion.emitting = true
 	await DeathExplosion.finished
 	queue_free()
