@@ -1,5 +1,6 @@
 extends Node3D
 
+
 var Damage: int = 10
 var TempVec: Vector3 = Vector3(2.0,2.0,2.0)
 var LeveledRotation = Vector3(-44.8,9.3,132.6)
