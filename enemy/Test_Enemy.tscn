@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgjew46k3n48m"]
+[gd_scene load_steps=8 format=3 uid="uid://dgjew46k3n48m"]
 
 [ext_resource type="Script" path="res://enemy/Parent_Enemy.gd" id="1_skegd"]
 [ext_resource type="AudioStream" uid="uid://6m216y5dsm80" path="res://assets/Sounds/Attack/Sword_Hit.wav" id="2_hkrnr"]
@@ -13,6 +13,10 @@ material = SubResource("StandardMaterial3D_ej3kt")
 size = Vector3(1, 1.89014, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e3evs"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8wawv"]
+streams_count = 1
+stream_0/stream = ExtResource("2_hkrnr")
 
 [node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("CollisionShape", "MeshInstance", "Navigation", "Animations", "HurtBox", "AnimatedSprite") groups=["Enemy"]]
 script = ExtResource("1_skegd")
@@ -59,7 +63,8 @@ one_shot = true
 autostart = true
 
 [node name="HitStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hkrnr")
+stream = SubResource("AudioStreamRandomizer_8wawv")
+max_polyphony = 10
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://be0m65lm6ue27"]
+[gd_scene load_steps=8 format=3 uid="uid://be0m65lm6ue27"]
 
 [ext_resource type="Material" uid="uid://bul8ckqb27oyb" path="res://shaders/experience_material.tres" id="1_rn8fm"]
 [ext_resource type="Script" path="res://exp/experience.gd" id="2_j1s8d"]
 [ext_resource type="AudioStream" uid="uid://c8yxocgqnhr2t" path="res://assets/Sounds/Hurt/Hurt2.wav" id="3_lfs7n"]
+[ext_resource type="AudioStream" uid="uid://bmd37ltbwq2mo" path="res://assets/Sounds/Hurt/Hurt1.wav" id="3_o2n3m"]
+[ext_resource type="AudioStream" uid="uid://rgs76wnshm7i" path="res://assets/Sounds/Hurt/Hurt3.wav" id="5_a2jfx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_0g0m0"]
 material = ExtResource("1_rn8fm")
 size = Vector2(0.5, 0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uyqns"]
+streams_count = 3
+stream_0/stream = ExtResource("3_o2n3m")
+stream_1/stream = ExtResource("3_lfs7n")
+stream_2/stream = ExtResource("5_a2jfx")
 
 [node name="Experience" type="MeshInstance3D"]
 cast_shadow = 0
@@ -15,4 +23,5 @@ mesh = SubResource("QuadMesh_0g0m0")
 script = ExtResource("2_j1s8d")
 
 [node name="DeathAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_lfs7n")
+stream = SubResource("AudioStreamRandomizer_uyqns")
+max_polyphony = 10
