@@ -3,6 +3,7 @@ extends Control
 @export var player_stats: PlayerStats
 
 @onready var heart_panel: PackedScene = preload("res://player/ui/heart_panel.tscn")
+@onready var exp_bar: ProgressBar = $EXPBar/ProgressBar
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
