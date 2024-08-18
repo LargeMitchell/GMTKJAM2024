@@ -1,10 +1,16 @@
 extends MeshInstance3D
 
+@onready var death_audio_stream_player: AudioStreamPlayer = $DeathAudioStreamPlayer
+
+
 @export var move_speed: float = 2.0
 @export var max_speed: float = 10.0
 @export var exp_amount: int = 10
 
 var timer: float = 0.0
+
+func _ready() -> void:
+	play_audio(death_audio_stream_player)
 
 func _physics_process(delta: float) -> void:
 	if timer < 1.0: timer += delta
@@ -18,3 +24,15 @@ func _physics_process(delta: float) -> void:
 		Global.got_exp.emit(exp_amount)
 		queue_free()
 	
+func play_audio(AudioPlayer: AudioStreamPlayer):
+	var last_pitch = 1.0
+	randomize()
+	AudioPlayer.pitch_scale = randf_range(0.8, 1.3)
+	
+	while abs(AudioPlayer.pitch_scale - last_pitch) < .1:
+		randomize()
+		AudioPlayer.pitch_scale = randf_range(0.8, 1.3)
+	
+	last_pitch = AudioPlayer.pitch_scale
+	
+	AudioPlayer.play()

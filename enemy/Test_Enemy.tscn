@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgjew46k3n48m"]
+[gd_scene load_steps=7 format=3 uid="uid://dgjew46k3n48m"]
 
 [ext_resource type="Script" path="res://enemy/Parent_Enemy.gd" id="1_skegd"]
 [ext_resource type="AudioStream" uid="uid://6m216y5dsm80" path="res://assets/Sounds/Attack/Sword_Hit.wav" id="2_hkrnr"]
-[ext_resource type="AudioStream" uid="uid://c8yxocgqnhr2t" path="res://assets/Sounds/Hurt/Hurt2.wav" id="3_w2vst"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej3kt"]
 albedo_color = Color(0.575078, 0, 0.111744, 1)
@@ -61,9 +60,6 @@ autostart = true
 
 [node name="HitStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hkrnr")
-
-[node name="DeathStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_w2vst")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

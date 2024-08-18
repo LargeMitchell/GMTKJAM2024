@@ -37,7 +37,6 @@ var CurrentHealth: int
 @onready var MeshMaterial: StandardMaterial3D = MeshInstance.get_active_material(0)
 @onready var exp: PackedScene = preload("res://exp/experience.tscn")
 @onready var hit_stream_player: AudioStreamPlayer = $HitStreamPlayer
-@onready var death_stream_player: AudioStreamPlayer = $DeathStreamPlayer
 
 func _ready() -> void:
 	var material_override = StandardMaterial3D.new()
@@ -96,7 +95,6 @@ func hit(DamageReceived: int):
 	CurrentHealth = CurrentHealth - DamageReceived
 	
 	if CurrentHealth <= 1: 
-		play_audio(death_stream_player)
 		die()
 		print("DEATH")
 

@@ -17,7 +17,6 @@ var level_exp_dictionary: Dictionary = {
 
 func _ready() -> void:
 	Global.got_exp.connect(got_exp)
-	
 
 func got_exp(amount: int) -> void:
 	current_exp += amount
