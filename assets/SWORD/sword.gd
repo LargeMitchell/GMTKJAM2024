@@ -19,6 +19,6 @@ func _on_exp_component_level_up_signal() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "scale", new_scale, 0.5)
 	#self.scale_object_local(TempVec)
-	self.rotate_object_local(LeveledRotation, 0.0)
+	#self.rotate_object_local(LeveledRotation, 0.0)
 	
 	pass # Replace with function body.

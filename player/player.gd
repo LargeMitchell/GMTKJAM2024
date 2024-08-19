@@ -44,9 +44,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("attack"):
 		attacking = true
-		if not animation_player.current_animation == "AttackSwing2":
+		if not animation_player.current_animation == "AttackSwing1":
 			play_audio(woosh_stream_player)
-		animation_player.play("AttackSwing2")
+		animation_player.play("AttackSwing1")
 	
 	#if Input.is_action_pressed("spin"):
 		#animation_player.play("AttackPose")
