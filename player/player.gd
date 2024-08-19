@@ -11,6 +11,7 @@ extends CharacterBody3D
 @export var camera: Camera3D
 @export var xp_particle: GPUParticles3D
 @export var levelup_stream_player: AudioStreamPlayer
+@export var xp_stream_player: AudioStreamPlayer
 
 @export_category("Camera Shake")
 @export var random_strength: float = 0.5
@@ -97,6 +98,7 @@ func random_offset() -> Vector2:
 func on_xp_received() -> void:
 	print("XPGot")
 	xp_particle.emitting = true
+	play_audio(xp_stream_player)
 
 func on_level_up(new_level):
 	play_audio(levelup_stream_player)
