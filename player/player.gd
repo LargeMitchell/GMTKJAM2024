@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var animation_player: AnimationPlayer
 @export var woosh_stream_player: AudioStreamPlayer
 @export var camera: Camera3D
+@export var xp_particle: GPUParticles3D
 
 @export_category("Camera Shake")
 @export var random_strength: float = 0.5
@@ -24,6 +25,8 @@ var attacking: bool = false
 
 func _ready() -> void:
 	Global.player = self
+	
+	Global.exp_applied.connect(on_xp_received)
 	
 	animation_player.play("Idle")
 
@@ -41,6 +44,9 @@ func _physics_process(delta: float) -> void:
 		if not animation_player.current_animation == "AttackSwing2":
 			play_audio(woosh_stream_player)
 		animation_player.play("AttackSwing2")
+	
+	#if Input.is_action_pressed("spin"):
+		#animation_player.play("AttackPose")
 		
 		
 	var space_state = get_world_3d().direct_space_state
@@ -85,3 +91,7 @@ func apply_shake():
 
 func random_offset() -> Vector2:
 	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
+
+func on_xp_received() -> void:
+	print("XPGot")
+	xp_particle.emitting = true
