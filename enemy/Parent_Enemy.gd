@@ -18,6 +18,7 @@ var CurrentHealth: int
 @export var CanMove: bool
 @export var CanShoot: bool
 @export var Damage: int
+@export var ExplosionColor: Color = Color8(156, 1, 0)
 @export var PlayerGroup: String #Group in which the player character is
 @export var AttackGroup: String #Group in which the player's sword will be
 
@@ -119,7 +120,7 @@ func die() -> void:
 	exp_inst.global_position = global_position
 	AnimatedSprite.hide()
 	Global.player.apply_shake()
-	DeathExplosion.emitting = true
+	emit_death_particles()
 	await DeathExplosion.finished
 	queue_free()
 
@@ -135,3 +136,9 @@ func play_audio(AudioPlayer: AudioStreamPlayer):
 	last_pitch = AudioPlayer.pitch_scale
 	
 	AudioPlayer.play()
+
+func emit_death_particles():
+	var DeathMaterial: StandardMaterial3D = StandardMaterial3D.new()
+	DeathMaterial.albedo_color = ExplosionColor
+	DeathExplosion.mesh.surface_set_material(0, DeathMaterial)
+	DeathExplosion.emitting = true
