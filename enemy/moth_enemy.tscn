@@ -26,18 +26,18 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gro4u"]
-size = Vector3(81.9301, 72.8921, 78.0988)
+size = Vector3(131.884, 119.257, 129.641)
 
 [node name="PoliceEnemy" instance=ExtResource("1_at73m")]
 Scale = Vector3(0.5, 0.5, 0.5)
 
 [node name="AnimatedSprite3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.1178, 0)
-pixel_size = 0.6
+pixel_size = 1.0
 sprite_frames = SubResource("SpriteFrames_07j8o")
 frame_progress = 0.0498104
 speed_scale = 2.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294773, 12.427, -0.245572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.467718, 9.82105, 0.133721)
 shape = SubResource("BoxShape3D_gro4u")
