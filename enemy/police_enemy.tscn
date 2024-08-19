@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cii4fs0hd3iix"]
+[gd_scene load_steps=7 format=3 uid="uid://cii4fs0hd3iix"]
 
 [ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="1_axe3q"]
 [ext_resource type="Texture2D" uid="uid://bjtlxe8xrkdxl" path="res://assets/EnemySpriteSheets/PoliceTruck.png" id="2_gfepq"]
@@ -25,7 +25,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PoliceEnemy" instance=ExtResource("1_axe3q")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ex368"]
+size = Vector3(4.28754, 3.91711, 3.67114)
+
+[node name="PoliceEnemy" node_paths=PackedStringArray("CollisionShape", "HurtBoxShape") instance=ExtResource("1_axe3q")]
+CollisionShape = NodePath("")
+HurtBoxShape = NodePath("Area3D/CollisionShape3D2")
 
 [node name="AnimatedSprite3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09362, 0)
@@ -34,5 +39,6 @@ sprite_frames = SubResource("SpriteFrames_07j8o")
 frame_progress = 0.0498104
 speed_scale = 2.0
 
-[node name="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.284685, 0.484515, -0.27354)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0364685, 1.45856, -0.400513)
+shape = SubResource("BoxShape3D_ex368")

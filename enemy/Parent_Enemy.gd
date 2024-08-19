@@ -27,6 +27,7 @@ var CurrentHealth: int
 @export var Navigation: NavigationAgent3D 
 @export var Animations: AnimationPlayer
 @export var HurtBox: Area3D 
+@export var HurtBoxShape: CollisionShape3D
 @export var AnimatedSprite: AnimatedSprite3D
 @export var DeathExplosion: CPUParticles3D
 
@@ -36,6 +37,8 @@ var CurrentHealth: int
 @onready var TargetToChase = Global.player
 @onready var exp: PackedScene = preload("res://exp/experience.tscn")
 @onready var hit_stream_player: AudioStreamPlayer = $HitStreamPlayer
+
+var dead: bool = false
 
 func _ready() -> void:
 	var material_override = StandardMaterial3D.new()
@@ -115,14 +118,18 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		hit(area.Damage)
 
 func die() -> void:
-	var exp_inst: MeshInstance3D = exp.instantiate()
-	get_parent().add_child(exp_inst)
-	exp_inst.global_position = global_position
-	AnimatedSprite.hide()
-	Global.player.apply_shake()
-	emit_death_particles()
-	await DeathExplosion.finished
-	queue_free()
+	if dead == false:
+		var exp_inst: MeshInstance3D = exp.instantiate()
+		get_parent().add_child(exp_inst)
+		exp_inst.global_position = global_position
+		AnimatedSprite.hide()
+		Global.player.apply_shake()
+		emit_death_particles()
+		HurtBox.queue_free()
+		
+		dead = true
+		await DeathExplosion.finished
+		queue_free()
 
 func play_audio(AudioPlayer: AudioStreamPlayer):
 	var last_pitch = 1.0

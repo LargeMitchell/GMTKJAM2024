@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgjew46k3n48m"]
+[gd_scene load_steps=13 format=3 uid="uid://dgjew46k3n48m"]
 
 [ext_resource type="Script" path="res://enemy/Parent_Enemy.gd" id="1_skegd"]
 [ext_resource type="AudioStream" uid="uid://6m216y5dsm80" path="res://assets/Sounds/Attack/Sword_Hit.wav" id="2_hkrnr"]
@@ -25,9 +25,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4qaaw"]
-size = Vector3(1, 1.89014, 1)
 
 [sub_resource type="Animation" id="Animation_db881"]
 resource_name = "Hit"
@@ -67,8 +64,6 @@ _data = {
 "RESET": SubResource("Animation_cbjhe")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e3evs"]
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8wawv"]
 streams_count = 1
 stream_0/stream = ExtResource("2_hkrnr")
@@ -88,7 +83,7 @@ CanMove = true
 Damage = 1
 PlayerGroup = "TestPlayer"
 AttackGroup = "Attack"
-CollisionShape = NodePath("Collisions")
+CollisionShape = NodePath("")
 Navigation = NodePath("NavigationAgent3D")
 Animations = NodePath("AnimationPlayer")
 HurtBox = NodePath("Area3D")
@@ -104,11 +99,6 @@ alpha_cut = 3
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_octie")
 
-[node name="Collisions" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.489575, 0)
-shape = SubResource("BoxShape3D_4qaaw")
-disabled = true
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -119,10 +109,6 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="." groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_e3evs")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
