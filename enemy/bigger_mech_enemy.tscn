@@ -29,6 +29,7 @@ animations = [{
 size = Vector3(19.9722, 27.7607, 28.1257)
 
 [node name="PoliceEnemy" instance=ExtResource("1_57pye")]
+MaxHealth = 50
 ExplosionScale = Vector3(10, 10, 10)
 Scale = Vector3(0.5, 0.5, 0.5)
 

@@ -29,6 +29,7 @@ animations = [{
 size = Vector3(1, 1.99915, 2.9751)
 
 [node name="GuyEnemy" node_paths=PackedStringArray("HurtBoxShape") instance=ExtResource("1_s76wg")]
+Speed = 4.0
 ExplosionColor = Color(0.912317, 0, 0.0112435, 1)
 ExplosionScale = Vector3(1.5, 1.5, 1.5)
 HurtBoxShape = NodePath("Area3D/CollisionShape3D")

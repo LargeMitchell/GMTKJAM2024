@@ -29,6 +29,8 @@ animations = [{
 size = Vector3(131.884, 119.257, 129.641)
 
 [node name="PoliceEnemy" instance=ExtResource("1_at73m")]
+Speed = 3.0
+MaxHealth = 40
 Scale = Vector3(0.5, 0.5, 0.5)
 
 [node name="AnimatedSprite3D" parent="." index="0"]

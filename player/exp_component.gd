@@ -19,7 +19,10 @@ var level_exp_dictionary: Dictionary = {
 	4: 300,
 	5: 500,
 	6: 700,
-	7: 1000
+	7: 1000,
+	8: 1300,
+	9: 1700,
+	10: 2200
 }
 
 func _ready() -> void:
@@ -63,3 +66,7 @@ func level_up() -> void:
 	if current_level == 7:
 		target_camera_size = camera.size * 2
 		camera.position *= 2
+
+	
+	
+	

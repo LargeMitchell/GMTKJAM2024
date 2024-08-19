@@ -21,9 +21,9 @@ size = Vector3(39.7088, 1, 45.0534)
 
 [node name="Enemy Spawner" parent="NavigationRegion3D" instance=ExtResource("2_nn35m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0050745, 0, 1.10456)
-SpawnInterval = 1
 SpawnRange = 20.0
 Enabled = true
+SpawnInterval = 1
 
 [node name="TestEnemy" parent="NavigationRegion3D" instance=ExtResource("2_0mb6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63275, 1.10823, 19.0871)

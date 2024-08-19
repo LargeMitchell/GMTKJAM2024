@@ -1,10 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://7q3h73glx305"]
+[gd_scene load_steps=7 format=3 uid="uid://7q3h73glx305"]
 
 [ext_resource type="Script" path="res://enemy/Spawner.gd" id="1_jbnbk"]
+[ext_resource type="PackedScene" uid="uid://cg4rewyg0240p" path="res://enemy/guy_enemy.tscn" id="2_kiyd7"]
+[ext_resource type="PackedScene" uid="uid://cii4fs0hd3iix" path="res://enemy/police_enemy.tscn" id="3_qpu41"]
+[ext_resource type="PackedScene" uid="uid://idku8ihkmsn0" path="res://enemy/mech_enemy.tscn" id="4_808up"]
+[ext_resource type="PackedScene" uid="uid://dgnb0bogvajfh" path="res://enemy/bigger_mech_enemy.tscn" id="5_xytgn"]
+[ext_resource type="PackedScene" uid="uid://cmqmjxs0bf5vc" path="res://enemy/moth_enemy.tscn" id="6_8tptq"]
 
 [node name="Enemy Spawner" type="Node3D" node_paths=PackedStringArray("SpawnTimer")]
 script = ExtResource("1_jbnbk")
 SpawnTimer = NodePath("Spawn Timer")
+Wave1 = Array[PackedScene]([ExtResource("2_kiyd7")])
+Wave2 = Array[PackedScene]([ExtResource("2_kiyd7"), ExtResource("3_qpu41")])
+Wave3 = Array[PackedScene]([ExtResource("2_kiyd7"), ExtResource("3_qpu41"), ExtResource("3_qpu41")])
+Wave4 = Array[PackedScene]([ExtResource("3_qpu41"), ExtResource("4_808up")])
+Wave5 = Array[PackedScene]([ExtResource("4_808up"), ExtResource("4_808up"), ExtResource("3_qpu41")])
+Wave6 = Array[PackedScene]([ExtResource("4_808up"), ExtResource("5_xytgn")])
+Wave7 = Array[PackedScene]([ExtResource("4_808up"), ExtResource("5_xytgn"), ExtResource("5_xytgn")])
+Wave8 = Array[PackedScene]([ExtResource("5_xytgn")])
+Wave9 = Array[PackedScene]([ExtResource("5_xytgn"), ExtResource("2_kiyd7"), ExtResource("6_8tptq"), ExtResource("3_qpu41")])
+Wave10 = Array[PackedScene]([ExtResource("5_xytgn"), ExtResource("4_808up"), ExtResource("6_8tptq"), ExtResource("3_qpu41"), ExtResource("2_kiyd7")])
+SpawnInterval = 3
+SpawnInterval2 = 3
+SpawnInterval3 = 4
+SpawnInterval4 = 4
+SpawnInterval5 = 4
+SpawnInterval6 = 3
+SpawnInterval7 = 3
+SpawnInterval8 = 3
+SpawnInterval9 = 2
+SpawnInterval10 = 2
 
 [node name="Spawn Timer" type="Timer" parent="."]
 autostart = true
