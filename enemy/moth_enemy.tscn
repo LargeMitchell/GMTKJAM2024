@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmqmjxs0bf5vc"]
+
+[ext_resource type="PackedScene" uid="uid://dgjew46k3n48m" path="res://enemy/Test_Enemy.tscn" id="1_at73m"]
+[ext_resource type="Texture2D" uid="uid://cghycfghexy5h" path="res://assets/EnemySpriteSheets/MOTH.png" id="2_ti52p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t1x7"]
+atlas = ExtResource("2_ti52p")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff5fi"]
+atlas = ExtResource("2_ti52p")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07j8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t1x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff5fi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gro4u"]
+size = Vector3(81.9301, 72.8921, 78.0988)
+
+[node name="PoliceEnemy" instance=ExtResource("1_at73m")]
+Scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="AnimatedSprite3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.1178, 0)
+pixel_size = 0.6
+sprite_frames = SubResource("SpriteFrames_07j8o")
+frame_progress = 0.0498104
+speed_scale = 2.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294773, 12.427, -0.245572)
+shape = SubResource("BoxShape3D_gro4u")
