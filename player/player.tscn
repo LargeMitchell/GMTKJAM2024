@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
-[ext_resource type="Resource" path="res://player/player_stats.tres" id="2_8o5yg"]
+[ext_resource type="Resource" uid="uid://ctv35bn388pki" path="res://player/player_stats.tres" id="2_8o5yg"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
 [ext_resource type="Script" path="res://player/health_component.gd" id="3_q04dv"]
@@ -6080,6 +6080,21 @@ tracks/186/interp = 0
 tracks/186/loop_wrap = true
 tracks/186/keys = PackedFloat32Array(0, 1, -0.478072, 0.273315, 0.194198, 0.811808)
 
+[sub_resource type="Animation" id="Animation_slxan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D/CollisionShape3D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_eooik"]
 resource_name = "T0"
 length = 0.0416667
@@ -8718,21 +8733,6 @@ tracks/187/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_slxan"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rig/Skeleton3D/Guy/BoneAttachment3D/Sword/Area3D/CollisionShape3D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p3gy1"]
 _data = {
 "AttackPose": SubResource("Animation_4f2uc"),
@@ -8774,10 +8774,9 @@ collision_mask = 2
 shape = SubResource("CapsuleShape3D_ai7qf")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7, 5)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 7.7766, 5)
 projection = 1
 size = 15.0
-far = 75.0
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="."]
 skeleton = NodePath("")
@@ -10363,7 +10362,7 @@ mesh = SubResource("ArrayMesh_vs2ho")
 skin = SubResource("Skin_siuhb")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Guy/rig/Skeleton3D/Guy"]
-transform = Transform3D(0.668154, 0.503068, -0.56717, -0.0864565, -0.711634, -0.676716, -0.757707, 0.476197, -0.459981, -0.292345, 0.691249, 0.167953)
+transform = Transform3D(0.668154, 0.503063, -0.567166, -0.0864582, -0.711636, -0.676717, -0.757705, 0.476194, -0.45998, -0.292345, 0.691248, 0.167951)
 bone_name = "DEF-hand.R"
 bone_idx = 174
 use_external_skeleton = true

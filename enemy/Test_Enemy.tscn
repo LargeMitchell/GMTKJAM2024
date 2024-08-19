@@ -75,7 +75,7 @@ albedo_color = Color(0.870091, 0.459962, 0.117234, 1)
 material = SubResource("StandardMaterial3D_to36y")
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("CollisionShape", "Navigation", "Animations", "HurtBox", "AnimatedSprite", "DeathExplosion") groups=["Enemy"]]
+[node name="TestEnemy" type="CharacterBody3D" node_paths=PackedStringArray("Navigation", "Animations", "HurtBox", "AnimatedSprite", "DeathExplosion") groups=["Enemy"]]
 script = ExtResource("1_skegd")
 Speed = 2.0
 MaxHealth = 20
@@ -83,7 +83,6 @@ CanMove = true
 Damage = 1
 PlayerGroup = "TestPlayer"
 AttackGroup = "Attack"
-CollisionShape = NodePath("")
 Navigation = NodePath("NavigationAgent3D")
 Animations = NodePath("AnimationPlayer")
 HurtBox = NodePath("Area3D")

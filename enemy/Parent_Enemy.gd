@@ -19,6 +19,7 @@ var CurrentHealth: int
 @export var CanShoot: bool
 @export var Damage: int
 @export var ExplosionColor: Color = Color8(156, 1, 0)
+@export var ExplosionScale: Vector3 = Vector3(1,1,1)
 @export var PlayerGroup: String #Group in which the player character is
 @export var AttackGroup: String #Group in which the player's sword will be
 
@@ -148,4 +149,5 @@ func emit_death_particles():
 	var DeathMaterial: StandardMaterial3D = StandardMaterial3D.new()
 	DeathMaterial.albedo_color = ExplosionColor
 	DeathExplosion.mesh.surface_set_material(0, DeathMaterial)
+	DeathExplosion.scale = ExplosionScale
 	DeathExplosion.emitting = true

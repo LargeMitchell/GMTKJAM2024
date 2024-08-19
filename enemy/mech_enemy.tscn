@@ -28,8 +28,9 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_g1m6s"]
 size = Vector3(8.43256, 6.2041, 8.58276)
 
-[node name="PoliceEnemy" node_paths=PackedStringArray("CollisionShape", "HurtBoxShape") instance=ExtResource("1_ww2a5")]
-CollisionShape = NodePath("")
+[node name="PoliceEnemy" node_paths=PackedStringArray("HurtBoxShape") instance=ExtResource("1_ww2a5")]
+ExplosionColor = Color(0.757629, 0.667932, 0.328303, 1)
+ExplosionScale = Vector3(3, 3, 3)
 HurtBoxShape = NodePath("Area3D/CollisionShape3D")
 Scale = Vector3(0.5, 0.5, 0.5)
 
