@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cegcdd5xqqw3q" path="res://shaders/post_process.tscn" id="1_8ksxa"]
 [ext_resource type="PackedScene" uid="uid://b1rdfvdglybqv" path="res://player/player.tscn" id="2_dtir2"]
 [ext_resource type="PackedScene" uid="uid://7q3h73glx305" path="res://enemy/enemy_spawner.tscn" id="3_0e8c0"]
-[ext_resource type="PackedScene" path="res://enemy/guy_enemy.tscn" id="4_4w2yv"]
+[ext_resource type="PackedScene" uid="uid://cg4rewyg0240p" path="res://enemy/guy_enemy.tscn" id="4_4w2yv"]
 [ext_resource type="PackedScene" uid="uid://cii4fs0hd3iix" path="res://enemy/police_enemy.tscn" id="5_uqe5y"]
 [ext_resource type="PackedScene" uid="uid://idku8ihkmsn0" path="res://enemy/mech_enemy.tscn" id="6_y0h1n"]
 [ext_resource type="MeshLibrary" uid="uid://dyhdq48mttuoe" path="res://level/PlanesMeshLib.tres" id="7_81e45"]

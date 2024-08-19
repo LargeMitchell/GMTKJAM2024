@@ -29,7 +29,9 @@ func _ready() -> void:
 
 # Added to smooth out camera zoom.
 func _process(delta: float) -> void:
-	camera.size = lerpf(camera.size, target_camera_size, camera_speed * delta)
+	#camera.size = lerpf(camera.size, target_camera_size, camera_speed * delta)
+	var tween: Tween = create_tween()
+	tween.tween_property(camera, "size", target_camera_size, 0.5)
 	
 func got_exp(amount: int) -> void:
 	current_exp += amount
