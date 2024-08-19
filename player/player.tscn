@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
-[ext_resource type="Resource" uid="uid://ctv35bn388pki" path="res://player/player_stats.tres" id="2_8o5yg"]
+[ext_resource type="Resource" path="res://player/player_stats.tres" id="2_8o5yg"]
 [ext_resource type="PackedScene" uid="uid://b2x6lb6ej5cyl" path="res://assets/SWORD/Sword.glb" id="2_xq8hi"]
 [ext_resource type="Script" path="res://player/exp_component.gd" id="3_1xckh"]
 [ext_resource type="Script" path="res://player/health_component.gd" id="3_q04dv"]

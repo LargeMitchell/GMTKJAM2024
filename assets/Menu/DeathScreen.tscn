@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bup7h4hrc052a"]
+
+[ext_resource type="Script" path="res://assets/Menu/death_screen.gd" id="1_utqyj"]
+[ext_resource type="Texture2D" uid="uid://hh348oleeiik" path="res://assets/Menu/Death.png" id="2_4nhm3"]
+
+[node name="DeathScreen" type="Node2D"]
+script = ExtResource("1_utqyj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4nhm3")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 436.0
+offset_top = 773.0
+offset_right = -468.0
+offset_bottom = -94.0
+theme_override_font_sizes/font_size = 156
+text = "GAME    OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RESTART" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 403.0
+offset_right = 677.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 85
+text = "RESTART"
+
+[node name="QUIT" type="Button" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 1322.0
+offset_top = 407.0
+offset_right = 1805.0
+offset_bottom = 563.0
+theme_override_font_sizes/font_size = 85
+text = "QUIT"
+
+[connection signal="pressed" from="CanvasLayer/TextureRect/RESTART" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_pressed"]

@@ -43,6 +43,7 @@ func got_exp(amount: int) -> void:
 func level_up() -> void:
 	current_level += 1
 	player_stats.exp_to_next_level = level_exp_dictionary[current_level]
+	player_stats.current_health = 5
 	Global.leveled_up.emit(current_level)
 	emit_signal("level_up_signal")
 
