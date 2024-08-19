@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://b1rdfvdglybqv"]
+[gd_scene load_steps=48 format=4 uid="uid://b1rdfvdglybqv"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_721nm"]
 [ext_resource type="Resource" uid="uid://ctv35bn388pki" path="res://player/player_stats.tres" id="2_8o5yg"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://brh63vuyejs5r" path="res://assets/Sounds/Walking/Step 8.wav" id="15_jye1o"]
 [ext_resource type="AudioStream" uid="uid://bgdkmba73srbw" path="res://assets/Sounds/Walking/Step 10.wav" id="16_4cg8f"]
 [ext_resource type="Texture2D" uid="uid://odbfqqn3s502" path="res://assets/HUD/XpUp.png" id="19_yfpcj"]
+[ext_resource type="AudioStream" uid="uid://dkwbblvo7xxdp" path="res://assets/Sounds/LevelUp/powerup.wav" id="23_dc42e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ai7qf"]
 radius = 0.216256
@@ -10150,7 +10151,7 @@ stream_0/stream = ExtResource("5_m4mb3")
 stream_1/stream = ExtResource("7_b3cgo")
 stream_2/stream = ExtResource("6_hpbvp")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("mesh_root", "animation_player", "woosh_stream_player", "camera", "xp_particle") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("mesh_root", "animation_player", "woosh_stream_player", "camera", "xp_particle", "levelup_stream_player") groups=["Player"]]
 script = ExtResource("1_721nm")
 player_stats = ExtResource("2_8o5yg")
 mesh_root = NodePath("Guy")
@@ -10158,6 +10159,7 @@ animation_player = NodePath("Guy/AnimationPlayer")
 woosh_stream_player = NodePath("AudioStreamPlayer")
 camera = NodePath("Camera")
 xp_particle = NodePath("XpParticle")
+levelup_stream_player = NodePath("LevelUp")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17056, 0)
@@ -11810,6 +11812,9 @@ max_polyphony = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_0348h")
+
+[node name="LevelUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_dc42e")
 
 [connection signal="area_entered" from="Area3D" to="HealthComponent" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="HealthComponent" method="_on_area_3d_body_entered"]
