@@ -11,7 +11,14 @@ func _ready() -> void:
 
 func _on_exp_component_level_up_signal() -> void:
 	print("Sword Grows")
-	self.scale_object_local(TempVec)
+	var current_scale: Vector3
+	current_scale = self.scale
+	var new_scale: Vector3
+	new_scale = scale * TempVec
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "scale", new_scale, 0.5)
+	#self.scale_object_local(TempVec)
 	self.rotate_object_local(LeveledRotation, 0.0)
 	
 	pass # Replace with function body.
