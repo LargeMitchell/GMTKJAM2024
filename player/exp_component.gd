@@ -22,7 +22,8 @@ var level_exp_dictionary: Dictionary = {
 	7: 1000,
 	8: 1300,
 	9: 1700,
-	10: 2200
+	10: 2200,
+	11: 2300
 }
 
 func _ready() -> void:
@@ -45,11 +46,14 @@ func got_exp(amount: int) -> void:
 
 func level_up() -> void:
 	current_level += 1
+	if current_level == 11:
+		get_tree().change_scene_to_file("res://assets/Menu/VictoryScreen.tscn")
 	player_stats.exp_to_next_level = level_exp_dictionary[current_level]
 	player_stats.current_health = 5
 	Global.leveled_up.emit(current_level)
 	emit_signal("level_up_signal")
-
+	print("Level: ", current_level)
+	
 #Camera sizing code
 	if current_level == 4:
 		target_camera_size = camera.size * 1.5
@@ -66,7 +70,14 @@ func level_up() -> void:
 	if current_level == 7:
 		target_camera_size = camera.size * 2
 		camera.position *= 2
+	
+	if current_level == 8:
+		target_camera_size = camera.size * 2
+		camera.position *= 2
+	
+	if current_level == 9:
+		target_camera_size = camera.size * 2
+		camera.position *= 2
 
-	
-	
+
 	
