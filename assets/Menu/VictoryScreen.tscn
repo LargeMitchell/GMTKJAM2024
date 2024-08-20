@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc3lgef3u0g73"]
+[gd_scene load_steps=7 format=3 uid="uid://dc3lgef3u0g73"]
 
 [ext_resource type="Script" path="res://assets/Menu/death_screen.gd" id="1_3vc76"]
 [ext_resource type="Texture2D" uid="uid://thfy7w6h65tt" path="res://assets/Menu/VictoryScreen-LowRes.png" id="2_xkfgi"]
 [ext_resource type="AudioStream" uid="uid://bc8h07vj2qx2p" path="res://assets/Sounds/Music/upgrades_menu_asset_pack.ogg" id="3_dna54"]
+[ext_resource type="AudioStream" uid="uid://bhmvyv35mjbcf" path="res://assets/Sounds/Menu/click3.ogg" id="4_hvd13"]
+[ext_resource type="AudioStream" uid="uid://bc3x34ja1vdhk" path="res://assets/Sounds/Menu/mouserelease1.ogg" id="5_uq13i"]
+[ext_resource type="AudioStream" uid="uid://dm0ko2bu8gk5h" path="res://assets/Sounds/Menu/rollover6.ogg" id="6_vexe2"]
 
 [node name="DeathScreen" type="Node2D"]
 script = ExtResource("1_3vc76")
@@ -53,6 +56,15 @@ text = "QUIT"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dna54")
 autoplay = true
+
+[node name="PressAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+stream = ExtResource("4_hvd13")
+
+[node name="HoverAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+stream = ExtResource("5_uq13i")
+
+[node name="ExitAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+stream = ExtResource("6_vexe2")
 
 [connection signal="pressed" from="CanvasLayer/TextureRect/RESTART" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_pressed"]
