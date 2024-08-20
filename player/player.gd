@@ -104,3 +104,4 @@ func on_xp_received() -> void:
 func on_level_up(new_level):
 	play_audio(levelup_stream_player)
 	SPEED *= 1.4
+	animation_player.speed_scale -= 0.1

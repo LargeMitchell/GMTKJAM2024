@@ -25,4 +25,4 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	#Check player death if 0 or below load death screen	
 	if Player_Stats.current_health <= 0:
 		print("death of player")
-		get_tree().change_scene_to_file("res://assets/Menu/DeathScreen.tscn")
+		get_tree().change_scene_to_file.call_deferred("res://assets/Menu/DeathScreen.tscn")
