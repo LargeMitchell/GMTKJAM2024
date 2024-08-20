@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://1kwr8p8g1bf0"]
+[gd_scene load_steps=7 format=3 uid="uid://1kwr8p8g1bf0"]
 
 [ext_resource type="Script" path="res://assets/Menu/main_menu.gd" id="1_lx1jn"]
 [ext_resource type="Texture2D" uid="uid://bxyjw5f1p2cef" path="res://assets/Menu/MainMenu.png" id="2_s65ym"]
 [ext_resource type="AudioStream" uid="uid://bc8h07vj2qx2p" path="res://assets/Sounds/Music/upgrades_menu_asset_pack.ogg" id="3_vg5no"]
+[ext_resource type="AudioStream" uid="uid://bhmvyv35mjbcf" path="res://assets/Sounds/Menu/click3.ogg" id="4_6i4qd"]
+[ext_resource type="AudioStream" uid="uid://dm0ko2bu8gk5h" path="res://assets/Sounds/Menu/rollover6.ogg" id="5_s816y"]
+[ext_resource type="AudioStream" uid="uid://bc3x34ja1vdhk" path="res://assets/Sounds/Menu/mouserelease1.ogg" id="6_pha5r"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_lx1jn")
@@ -50,9 +53,24 @@ offset_bottom = 969.0
 theme_override_font_sizes/font_size = 85
 text = "QUIT"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vg5no")
 autoplay = true
 
+[node name="PressAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6i4qd")
+
+[node name="HoverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pha5r")
+
+[node name="ExitAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s816y")
+
+[connection signal="mouse_entered" from="CanvasLayer/TextureRect/PLAY" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/TextureRect/PLAY" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/PLAY" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_focus_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_pressed"]
