@@ -74,6 +74,7 @@ func set_wave(current_level): #On Level Up, set wave based on new player level
 		8:
 			CurrentWave = Wave8
 			CurrentInterval = SpawnInterval8
+			SpawnRange = 90
 		9:
 			CurrentWave = Wave9
 			CurrentInterval = SpawnInterval9
