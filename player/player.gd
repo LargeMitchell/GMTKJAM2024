@@ -75,6 +75,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(AttackSwing1: StringName) -> void:
 	attacking = false
+	animation_player.play("Idle")
 
 func play_audio(AudioPlayer: AudioStreamPlayer):
 	var last_pitch = 1.0
