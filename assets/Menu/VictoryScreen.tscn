@@ -13,58 +13,77 @@ script = ExtResource("1_3vc76")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 640.0
-offset_bottom = 360.0
+anchors_preset = -1
+anchor_right = 0.990104
+anchor_bottom = 1.0
+offset_right = 21.0
+offset_bottom = 39.0
 texture = ExtResource("2_xkfgi")
-expand_mode = 3
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.316857
+anchor_top = 0.025916
+anchor_right = 1.3231
+anchor_bottom = 0.697945
 offset_left = 42.0
-offset_top = 34.0
-offset_right = 358.0
-offset_bottom = -221.0
+offset_top = 23.0
+offset_right = 346.0
+offset_bottom = -232.0
 scale = Vector2(0.565, 0.565)
-theme_override_font_sizes/font_size = 76
+theme_override_font_sizes/font_size = 151
 text = "VICTORY OVER THE EARTH"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="RESTART" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 249.0
-offset_right = 351.0
-offset_bottom = 326.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0665317
+anchor_top = 0.641298
+anchor_right = 0.235
+anchor_bottom = 0.722
+offset_left = -0.873993
+offset_top = 0.387085
+offset_right = 159.33
+offset_bottom = 81.0819
 scale = Vector2(0.525, 0.525)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 105
 text = "PLAY AGAIN"
+metadata/_edit_use_anchors_ = true
 
 [node name="QUIT" type="Button" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 296.0
-offset_right = 350.0
-offset_bottom = 373.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.777
+anchor_right = 0.234
+anchor_bottom = 0.854
+offset_left = -0.696014
+offset_top = -0.463074
+offset_right = 290.252
+offset_bottom = 79.374
 scale = Vector2(0.525, 0.525)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 105
 text = "QUIT"
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dna54")
 autoplay = true
 
-[node name="PressAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+[node name="PressAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hvd13")
 
-[node name="HoverAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
-stream = ExtResource("5_uq13i")
-
-[node name="ExitAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+[node name="ExitAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vexe2")
+
+[node name="HoverAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uq13i")
 
 [connection signal="pressed" from="CanvasLayer/TextureRect/RESTART" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureRect/QUIT" to="." method="_on_quit_pressed"]

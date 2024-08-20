@@ -9,7 +9,8 @@ func _ready() -> void:
 
 #Restart button sounds & functionality
 func _on_restart_pressed() -> void:
-	Core.load_scene.emit(preload("res://level/game.tscn"))
+	print("IM LOADING")
+	get_tree().change_scene_to_file("res://core/root.tscn")
 
 func _on_restart_mouse_entered() -> void:
 	hover_audio_stream_player.play()
