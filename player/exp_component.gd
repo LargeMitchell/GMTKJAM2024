@@ -52,12 +52,12 @@ func level_up() -> void:
 
 #Camera sizing code
 	if current_level == 4:
-		target_camera_size = camera.size * 2
-		camera.position *= 2
+		target_camera_size = camera.size * 1.5
+		camera.position *= 1.5
 		
 	if current_level == 5:
-		target_camera_size = camera.size * 2
-		camera.position *= 2
+		target_camera_size = camera.size * 1.5
+		camera.position *= 1.5
 		
 	if current_level == 6:
 		target_camera_size = camera.size * 2
