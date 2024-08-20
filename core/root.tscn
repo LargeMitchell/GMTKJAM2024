@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://core/root.gd" id="1_rhmql"]
 [ext_resource type="Script" path="res://core/game_layer.gd" id="2_1xnxc"]
-[ext_resource type="PackedScene" uid="uid://cv5kifmiko3rv" path="res://level/game.tscn" id="2_7hnbm"]
+[ext_resource type="PackedScene" uid="uid://1kwr8p8g1bf0" path="res://assets/Menu/MainMenu.tscn" id="2_n1nyc"]
 [ext_resource type="Script" path="res://player/ui/player_ui.gd" id="4_76vnd"]
-[ext_resource type="Resource" uid="uid://ctv35bn388pki" path="res://player/player_stats.tres" id="5_q6nr4"]
+[ext_resource type="Resource" path="res://player/player_stats.tres" id="5_q6nr4"]
 [ext_resource type="Texture2D" uid="uid://cl10d21fsx0q0" path="res://assets/HUD/EXP Bar.png" id="6_1y2xi"]
 [ext_resource type="Shader" path="res://exp/exp_bar.gdshader" id="7_luypt"]
 
@@ -13,7 +13,7 @@ shader = ExtResource("7_luypt")
 
 [node name="Root" type="Node"]
 script = ExtResource("1_rhmql")
-starting_scene = ExtResource("2_7hnbm")
+starting_scene = ExtResource("2_n1nyc")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
