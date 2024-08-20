@@ -22,6 +22,7 @@ gi_mode = 0
 mesh = SubResource("QuadMesh_0g0m0")
 script = ExtResource("2_j1s8d")
 max_speed = 30.0
+exp_amount = 20
 
 [node name="DeathAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_uyqns")

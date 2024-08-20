@@ -11,13 +11,11 @@
 script = ExtResource("1_lx1jn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("2_s65ym")
 expand_mode = 3
 
@@ -26,10 +24,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 114.0
-offset_top = 190.0
-offset_right = -60.0
-offset_bottom = -693.0
+offset_left = 59.0
+offset_top = 65.0
+offset_right = 1014.0
+offset_bottom = -143.0
+scale = Vector2(0.345, 0.345)
 theme_override_font_sizes/font_size = 111
 text = "BIG, BIGGER, BIGGEST SWORD"
 horizontal_alignment = 1
@@ -37,20 +36,20 @@ vertical_alignment = 1
 
 [node name="PLAY" type="Button" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 642.0
-offset_right = 625.0
-offset_bottom = 798.0
-theme_override_font_sizes/font_size = 85
+offset_left = 59.0
+offset_top = 205.0
+offset_right = 184.95
+offset_bottom = 263.0
+theme_override_font_sizes/font_size = 36
 text = "PLAY"
 
 [node name="QUIT" type="Button" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
-offset_left = 145.0
-offset_top = 813.0
-offset_right = 628.0
-offset_bottom = 969.0
-theme_override_font_sizes/font_size = 85
+offset_left = 59.0
+offset_top = 280.0
+offset_right = 184.95
+offset_bottom = 338.0
+theme_override_font_sizes/font_size = 36
 text = "QUIT"
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]

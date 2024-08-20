@@ -27,7 +27,7 @@ var attacking: bool = false
 
 func _ready() -> void:
 	Global.player = self
-	
+	Global.toggle_menu.emit()
 	Global.exp_applied.connect(on_xp_received)
 	Global.leveled_up.connect(on_level_up)
 	
@@ -103,5 +103,5 @@ func on_xp_received() -> void:
 
 func on_level_up(new_level):
 	play_audio(levelup_stream_player)
-	SPEED *= 1.4
+	SPEED *= 1.3
 	animation_player.speed_scale -= 0.1
