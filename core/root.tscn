@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgpxnwlg2m5"]
+[gd_scene load_steps=9 format=3 uid="uid://cgpxnwlg2m5"]
 
 [ext_resource type="Script" path="res://core/root.gd" id="1_rhmql"]
 [ext_resource type="Script" path="res://core/game_layer.gd" id="2_1xnxc"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://player/ui/player_ui.gd" id="4_76vnd"]
 [ext_resource type="Resource" uid="uid://ctv35bn388pki" path="res://player/player_stats.tres" id="5_q6nr4"]
 [ext_resource type="Texture2D" uid="uid://cl10d21fsx0q0" path="res://assets/HUD/EXP Bar.png" id="6_1y2xi"]
+[ext_resource type="Shader" path="res://exp/exp_bar.gdshader" id="7_luypt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yffpx"]
+shader = ExtResource("7_luypt")
 
 [node name="Root" type="Node"]
 script = ExtResource("1_rhmql")
@@ -71,12 +75,16 @@ texture = ExtResource("6_1y2xi")
 [node name="ProgressBar" type="ProgressBar" parent="GameLayer/UI/EXPBar"]
 show_behind_parent = true
 z_as_relative = false
+material = SubResource("ShaderMaterial_yffpx")
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.075
+anchor_right = 0.997396
+anchor_bottom = 0.925
 grow_horizontal = 2
 grow_vertical = 2
 step = 1.0
+value = 50.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
